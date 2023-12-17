@@ -1,0 +1,245 @@
+/* Модалка */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+.modal_content {
+    height: 60%;
+    width: 40%;
+    border-radius: 50px;
+    background-color: #DFF5FD;
+  }
+
+.modal_title {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal_title_box {
+    height: 95%;
+    display: flex;
+    flex-direction: row;
+    padding-left: 6%;
+    padding-top: 5%;
+}
+.modal_title_text {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 24px;
+    display: flex;
+    width: 90%;
+}
+
+.modal_title_img_box{
+    width: 10%;
+    height: 100%;
+    padding-top: 0.5%;
+}
+
+.modal_title_img{
+    height: auto;
+    width: 35%;
+    cursor: pointer;
+}
+
+.modal_title_img:hover {
+    fill-opacity: 0.5; 
+}
+
+.line_big {
+    width: 100%;
+    height: 5%;
+    background-color: #D6EBF4;
+  }
+
+
+.modal_description{
+    height: 30%;
+    width: 100%;
+    padding-top: 1%;
+
+}
+
+
+.modal_description_text{
+    height: 20%;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 18px;
+    padding-left: 6%;
+}
+
+.modal_description_input{
+    height: 70%;
+    width: 80%;
+    margin-left: 6%;
+    border-radius: 50px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1%;
+}
+
+.modal_description_input_text{
+    width: 85%;
+    height: 80%;
+    border: none;
+    resize: none;
+    outline: none;    
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 14px;    
+}
+
+.modal_access {
+    height: 30%;
+    width: 100%;
+    padding-top: 1%;
+}
+
+.modal_access_text {
+    height: 30%;
+    width: 100%;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 18px;
+    padding-left: 6%;
+}
+
+.modal_access_box {
+    height: 50%;
+    width: 80%;
+    margin-left: 6%;
+    border-radius: 50px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal_access_list {
+    height: 100%;
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2%;
+    padding-left: 4%;
+}
+
+.modal_access_role {
+    height: 60%;
+    width: 45%;
+    border-radius: 50px;
+    background-color: #D9D9D9;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.modal_access_role_img {
+    height: auto;
+    width: 8%;
+    cursor: pointer;
+}
+
+.modal_access_role_img:hover {
+    fill-opacity: 0.5; 
+}
+
+
+.modal_access_img_box {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 5%;
+}
+
+
+.modal_select {
+    height: auto;
+    width: 35%;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    cursor: pointer;
+    padding-left: 7%;
+    appearance: none;
+    outline: none;
+    background-image: url('../../img/addrole.svg');
+    background-repeat: no-repeat;
+    background-position: right center;
+  }
+
+.modal_option{
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+
+.modal_access_img:hover {
+    fill-opacity: 0.5; 
+}
+
+.modal_buttons_box {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    padding-left: 6%;
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+  }
+
+.modal_button_update,
+.modal_button_delete {
+    height: 55%;
+    width: 35%;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    color: #fff;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.modal_button_update{
+    background-color: #1F5569;
+}
+
+.modal_button_delete{
+    background-color: #CB0404;
+
+}
+
+.modal_button_update:hover {
+    background-color: #0C3848;
+}
+
+.modal_button_delete:hover {
+    background-color: #7D0303;
+}

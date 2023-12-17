@@ -1,0 +1,114 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    user-select: none;
+}
+
+
+.left_side,
+.right_side {
+    flex: 1;
+    height: 100vh; 
+}
+
+
+/*Левая часть страницы*/
+.left_side {
+    flex: 20%;
+}
+
+/*Правая часть страницы*/
+.right_side {
+    flex: 80%;
+}
+
+.title {
+    height: 17%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+  
+.title_left {
+    height: 100%;
+    width: 50%;
+}
+  
+.title_text {
+    box-sizing: border-box;
+    height: 60%;
+    padding-top: 7%;
+    padding-left: 10%;
+    font-size: 20px;
+    font-family: 'Montserrat';
+    font-weight: 500;
+}
+  
+.title_description {
+    height: 40%;
+    padding-top: 2%;
+    padding-left: 10%;
+    font-size: 18px;
+    font-family: 'Montserrat';
+    color: #808080;
+    font-weight: 500;
+}
+
+.list {
+    height: 63%;
+}
+
+/*Кнопки*/
+
+.buttons_box {
+    height: 20%;
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 7%;
+    padding-left: 5%;
+}
+
+.order_button,
+.cancel_button {
+    width: 25%;
+    height: 40%;
+
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    color: #fff;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.order_button {
+    background-color: #1F5569;
+}
+
+.cancel_button {
+    background-color: #CB0404;
+
+}
+
+.order_button:hover {
+    background-color: #0C3848;
+}
+
+.cancel_button:hover {
+    background-color: #7D0303;
+}

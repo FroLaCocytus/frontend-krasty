@@ -1,0 +1,143 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    user-select: none;
+}
+
+
+.left_side,
+.right_side {
+    flex: 1;
+    height: 100vh; 
+}
+
+
+/*Левая часть страницы*/
+.left_side {
+    flex: 20%;
+}
+
+/*Правая часть страницы*/
+.right_side {
+    flex: 80%;
+
+}
+
+.title {
+    height: 17%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+  
+.title_left {
+    height: 100%;
+    width: 50%;
+}
+  
+.title_text {
+    box-sizing: border-box;
+    height: 60%;
+    padding-top: 7%;
+    padding-left: 10%;
+    font-size: 20px;
+    font-family: 'Montserrat';
+    font-weight: 500;
+}
+
+.form_box {
+    height: 83%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/*Форма*/
+.form {
+    height: 70%;
+    width: 50%;
+    background-color: #DFF5FD;
+    border: none;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-top: 3%;
+    margin-left: 5%;
+
+}
+
+.form_input_box_login,
+.form_input_box_password {
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_input_box_password {
+    margin-top: 7%;
+}
+
+.form_input {
+    height: 93%;
+    width: 85%;
+    border: none;
+    border-radius: 50px;
+    padding-left:7%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: black;
+    background-color: #EFFAFE;
+}
+
+.form_input::placeholder {
+    color: #BBBABF;
+    }
+    
+.form_input:focus {
+    outline: none;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+.button_box {
+    width: 100%;
+    height: 30%;
+}
+.button {
+    width: 50%;
+    height: 35%;
+    border: none;
+    margin-left: 5%;
+    margin-top: 3%;
+    border-radius: 50px;
+    font-family: 'Montserrat';
+    font-weight: 900;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    background-color: #1F5569;
+}
+
+.button:hover {
+    background-color: #0C3848;
+    }
+
+.dropdown_box {
+    height: 15%;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 7%;
+    padding-left: 3%;
+}

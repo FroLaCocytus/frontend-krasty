@@ -1,0 +1,67 @@
+/* .order_created, .oreder_accepted {
+    background-color: #DFF5FD;
+    border-radius: 50px;
+    height: 12%;
+    display: flex;
+    align-items: center;
+    background-image: url('../../img/arrow_down.svg');
+    background-repeat: no-repeat;
+    background-position: right 5% center;
+}
+.oreder_accepted {
+    background-color:  #AEEEEE;
+} */
+
+/* Order.module.css */
+.order {
+    height: 12%;
+    border-radius: 50px;
+    background-color: #DFF5FD;
+    background-image: url('../../img/arrow_down.svg');
+    background-repeat: no-repeat;
+    background-position: right 5% center;
+    overflow: hidden; /* Скрываем контент, который не помещается */
+    transition: height 0.3s; /* Плавное анимирование изменения высоты */
+  }
+  
+  .number {
+    font-size: 18px;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    padding-left: 3%;
+    padding-top: 2.3%;
+  }
+
+  .order_expanded {
+    height: 25%; /* Высота карточки при раскрытом состоянии */
+    border-radius: 50px;
+    background-color: #DFF5FD;;
+    transition: height 0.3s; /* Плавное анимирование изменения высоты */
+
+  }
+
+  .bottom {
+    padding-top: 3%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .description {
+    font-size: 18px;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    padding-left: 3%;
+    width: 50%;
+  }
+
+  button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }

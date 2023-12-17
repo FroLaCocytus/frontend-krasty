@@ -1,0 +1,120 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    row-gap: 3%;
+    column-gap: 7%;
+    box-sizing: border-box;
+
+    padding-top: 2%;
+    padding-left: 5%;
+}
+
+.dish_card {
+    width: 25%;
+    height: 47%;
+    display: flex;
+    flex-direction: column;
+    background-color: #DFF5FD;
+    border-radius: 50px;
+  }
+
+.img_box {
+    height: 45%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img {
+    height: auto;
+    width: 80%;
+}
+
+.name {
+    height: 10%;
+    padding-left: 11%;
+    font-size: 18px ;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.description {
+    height: 20%;
+    padding-left: 11%;
+    width: 80%;
+    font-size: 14px ;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+
+.bottom_card {
+    height: 25%;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.price {
+    width: 40%;
+    padding-left: 11%;
+    padding-top: 5%;
+    box-sizing: border-box;
+
+    font-size: 16px ;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.button_box {
+    width: 60%;
+    height: 100%;
+    box-sizing: border-box;
+    
+}
+
+.button_false,
+.button_true {
+    width: 70%;
+    height: 50%;
+    margin-left: 15%;
+    margin-top: 5%;
+
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button_false {
+    background-color: #1F5569;
+}
+
+.button_true {
+    background-color: #FCFEFE;
+    color: #1F5569;
+
+}
+
+.button_false:hover {
+    background-color: #0C3848;
+}
+
+.button_true:hover {
+    background-color: #9bcce5;
+}

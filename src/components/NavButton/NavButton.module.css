@@ -1,0 +1,62 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.button_box {
+    width: 100%;
+    height: 18%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+.button_box:hover {
+    background-color: white;
+}
+
+
+.img_box {
+    height: auto;
+    width: 30%;
+    padding-left: 9%;
+}
+
+.img {
+    height: auto;
+    width: 60%;
+    padding-left: 9%;
+}
+
+.text {
+    font-size: 20px ;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    height: auto;
+    width: 70%;
+}
+
+.output {
+    font-size: 20px ;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    height: 18%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+}
+
+.output:hover {
+    background-color: white;
+    cursor: pointer;
+
+}

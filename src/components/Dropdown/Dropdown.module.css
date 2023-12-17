@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+
+  }
+  
+
+.select_true,
+.select_false {
+    height: 100%;
+    width: 60%;
+    border: none;
+    border-radius: 50px;
+    background-color: #EFFAFE;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    cursor: pointer;
+    padding-left: 7%;
+    appearance: none;
+    outline: none;
+    background-image: url('../../img/arrow_down.svg');
+    background-repeat: no-repeat;
+    background-position: right 10% center;
+
+  }
+
+.select_true {
+    color: black;
+
+}
+.select_false {
+    color: #BBBABF;
+}
+
+
+
+.option{
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}

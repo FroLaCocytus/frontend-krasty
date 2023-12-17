@@ -1,0 +1,169 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    user-select: none;
+  }
+  
+.logo_svg {
+    margin-top: 3%; 
+    height: 28%;
+    width: auto;
+  }
+  
+.welcometext {
+    margin-top: 2%;
+    font-size: calc((1vw + 1vh)*1.5);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    color: #1D1D27;
+  }
+
+.buttons {
+    display: flex;
+    width: 100%;
+    height: 30%;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+    gap: 5%;
+  }
+  
+.login_button,
+.register_button {
+    width: 38%;
+    height: 30%;
+    border: none;
+    border-radius: 50px;
+    font-size: calc((1vw + 1vh)*1.04);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+
+  .login_button {
+    background-color: #00B0EF;
+  }
+
+  .register_button {
+    background-color: #1D1D27;
+    margin-top: 5vh;
+  }
+  
+  .login_button:hover {
+    background-color: #00C7FF;
+  }
+
+  .register_button:hover {
+    background-color: #2E2E41;
+  }
+
+  .login_button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
+  }
+
+  .register_button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
+  }
+
+
+
+
+/* Планшет */
+@media screen and (max-width: 1365px) {
+  
+  .logo_svg {
+    margin-top: 3%; 
+    height: 30%;
+  }
+
+  .welcometext {
+    margin-top: 4%;
+    font-size: calc((1vw + 1vh)*1.95);
+  }
+
+  .buttons {
+    width: 100%;
+    height: 30%;
+    margin-top: 7%;
+    gap: 5%;
+  }
+  
+  .login_button,
+  .register_button {
+    width: 50%;
+    height: 30%;
+    font-size: calc((1vw + 1vh)*1.4);
+  }
+}
+
+/* Между телефоном и планшетом */
+@media screen and (max-width: 900px) {
+  
+  .logo_svg {
+    margin-top: 5%; 
+    height: 32%;
+  }
+
+  .welcometext {
+    margin-top: 4%;
+    font-size: calc((1vw + 1vh)*2.25);
+  }
+
+  .buttons {
+    width: 100%;
+    height: 30%;
+    margin-top: 7%;
+    gap: 5%;
+  }
+  
+  .login_button,
+  .register_button {
+    width: 60%;
+    height: 37%;
+    font-size: calc((1vw + 1vh)*1.8);
+  }
+}
+
+
+/* Стили для мобильных устройств с шириной экрана до 480px */
+@media screen and (max-width: 480px) {
+  .logo_svg {
+    margin-top: 10%; 
+    height: 25%;
+  }
+
+  .welcometext {
+    margin-top: 10%;
+    font-size: calc((1vw + 1vh)*2.25);
+  }
+
+  .buttons {
+    width: 100%;
+    height: 30%;
+    margin-top: 25%;
+    gap: 2%;
+  }
+  
+  .login_button,
+  .register_button {
+    width: 70%;
+    height: 28%;
+    font-size: calc((1vw + 1vh)*1.6);
+  }
+}
+

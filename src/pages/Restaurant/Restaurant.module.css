@@ -1,0 +1,36 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    user-select: none;
+}
+
+
+.left_side,
+.right_side {
+    flex: 1;
+    height: 100vh; 
+}
+
+
+/*Левая часть страницы*/
+.left_side {
+    flex: 20%;
+}
+
+/*Правая часть страницы*/
+.right_side {
+    flex: 80%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 50px;
+    font-family: 'Montserrat';
+    font-weight: 900;
+}

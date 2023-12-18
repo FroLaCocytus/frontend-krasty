@@ -8,7 +8,7 @@ import NavButton from "../../components/NavButton/NavButton";
 import { accountant_buttons } from "../../nav_button";
 import Dropdown from "../../components/Dropdown/Dropdown";
 import { observer } from "mobx-react-lite";
-import { registration } from "../../http/userAPI";
+import { registrationStaff } from "../../http/userAPI";
 import ModalAlert from "../../components/ModalAlert/ModalAlert";
 
 
@@ -109,7 +109,7 @@ const Staff = observer(() => {
           return;
       }
 
-        await registration(login, password, role)
+        await registrationStaff(login, password, role)
         .then(data => {
           handleShowAlertModal("Пользователь успешно создан", true)
           setLogin("");

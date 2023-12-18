@@ -87,7 +87,7 @@ const Registration = observer(() => {
           return;
       }
 
-      await registration(login, password, "client")
+      await registration(login, password)
       .then(data => {
         handleShowAlertModal('Пользователь успешно добавлен!', true)
         setTimeout(() => {

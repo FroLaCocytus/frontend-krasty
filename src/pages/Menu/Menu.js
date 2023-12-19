@@ -1,5 +1,5 @@
 //База
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from './Menu.module.css'
 
 //Всё для навбара
@@ -20,9 +20,26 @@ import { observer } from "mobx-react-lite";
 //Падежи 
 import { wordСase } from "../../utils/wordCase";
 
+import ModalAlert from "../../components/ModalAlert/ModalAlert";
+
+
 const Menu = observer(() => {
     
     const {product} = useContext(Context)
+
+    const dish_count = product.products.length; //кол-во блюд
+    const page_number = 1;
+    
+    // Модалка с уведомлениями
+    const [showModal, setShowModal] = useState(false);
+    const [modalMessage, setModalMessage] = useState("");
+    const [modalStatus, setModalStatus] = useState(true);
+
+    const handleShowAlertModal = (message, status) => {
+        setModalMessage(message); 
+        setModalStatus(status);
+        setShowModal(true); 
+    };
 
     useEffect(()=>{
         fetchProducts().then(data => {
@@ -33,9 +50,6 @@ const Menu = observer(() => {
         
     }, [])
 
-    const dish_count = product.products.length; //кол-во блюд
-    const page_number = 1;
-    
     return (
         <div className={styles.container}>
             <div className={styles.left_side}>
@@ -58,9 +72,10 @@ const Menu = observer(() => {
                     </div>
                 </div>
                 <div className={styles.list}>
-                  <ListDishes/>
+                  <ListDishes handleShowAlertModal={handleShowAlertModal}/>
                 </div>
             </div>
+            <ModalAlert isOpen={showModal} message={modalMessage} onClose={() => setShowModal(false)} status={modalStatus}/>
         </div>
     );
 

@@ -3,8 +3,10 @@ import styles from './ListDishes.module.css'
 import { observer } from "mobx-react-lite";
 import { Context } from "../../index";
 import { fetchProducts } from "../../http/productAPI";
+import { getOneOrder } from "../../http/orderAPI";
 
-const ListDishes = observer((props) => {
+
+const ListDishes = observer(({handleShowAlertModal}) => {
 
     const {product} = useContext(Context)
     const dishesArray = product.products;
@@ -30,18 +32,27 @@ const ListDishes = observer((props) => {
     };
 
     
-    const addDish = (id) => {
-        const selectedProduct = { id, count: 1 };
-        let updatedProducts = [];
-
-        if (isProductSelected(id)) {
-            updatedProducts = selectedProducts.filter((product) => product.id !== id);
-        } else {
-            updatedProducts = [...selectedProducts, selectedProduct];
-        }
-
-        setSelectedProducts(updatedProducts);
-        localStorage.setItem('selectedProducts', JSON.stringify(updatedProducts));
+    const addDish = (id, price) => {
+        getOneOrder() 
+        .then(data => {
+            if (!data.message) {
+                handleShowAlertModal('У вас уже есть активный заказ', false);
+            } else {
+                const selectedProduct = { id, price, count: 1 };
+                let updatedProducts = [];
+        
+                if (isProductSelected(id)) {
+                    updatedProducts = selectedProducts.filter((product) => product.id !== id);
+                } else {
+                    updatedProducts = [...selectedProducts, selectedProduct];
+                }
+        
+                setSelectedProducts(updatedProducts);
+                localStorage.setItem('selectedProducts', JSON.stringify(updatedProducts));
+            }
+        })
+        .catch(error => {
+        });
     };
 
 
@@ -53,14 +64,14 @@ const ListDishes = observer((props) => {
                 <div className={styles.img_box}>
                     <img className={styles.img} src={process.env.REACT_APP_API_URL + item.img_path} />
                 </div>
-                <div className={styles.name}>{item.product_name}</div>
-                <div className={styles.description}>{item.product_description}</div>
+                <div className={styles.name}>{item.name}</div>
+                <div className={styles.description}>{item.description}</div>
                 <div className={styles.bottom_card}>
                     <div className={styles.price}>{item.price} $</div>
                     <div className={styles.button_box}>
 
                         <div
-                            onClick={() => addDish(item.id)}
+                            onClick={() => addDish(item.id, item.price)}
                             className={`${isProductSelected(item.id) ? styles.button_true : styles.button_false}`}
                         >
                             {isProductSelected(item.id) ? 'В корзине' : 'Выбрать'}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import styles from './ListItems.module.css'
 import { observer } from "mobx-react-lite";
 import { Context } from "../../index";
@@ -82,8 +82,8 @@ const ListItems = observer(({selectedProducts, setSelectedProducts}) => {
                             <img className={styles.img} src={process.env.REACT_APP_API_URL + item.img_path} />
                         </div>
                         <div className={styles.text_box}>
-                            <div className={styles.text_name}>{item.product_name}</div>
-                            <div className={styles.text_description}>{item.product_description}</div>
+                            <div className={styles.text_name}>{item.name}</div>
+                            <div className={styles.text_description}>{item.description}</div>
                         </div>
                     </div>
                     <div className={styles.line_small}></div>

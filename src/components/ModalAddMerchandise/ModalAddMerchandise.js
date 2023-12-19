@@ -13,15 +13,52 @@ const ModalAddMerchandise = observer(({setIsModalOpen, handleShowAlertModal, pag
     const [count, setCount] = useState("");
     const [title, setTitle] = useState("");
 
+    const checkTitle = (title) => {
+        const titleStartsWithLetter = /^[a-zA-Zа-яА-Я]/;
+        const titleSymbol = /^[a-zA-Zа-яА-Я0-9 ]*$/;
+        const titleLength =  /^.{1,25}$/;
+    
+        if (!titleStartsWithLetter.test(title)) {
+            return "Ошибка: название должно начинаться с буквы";
+        }
+        if (!titleSymbol.test(title)) {
+            return "Ошибка: название может включать только буквы, цифры и пробелы";
+        }
+        if (!titleLength.test(title)) {
+            return "Ошибка: длина названия должна быть от 1 до 25 символов";
+        }
+        return null; 
+    };
+    
+    const checkCount = (count) => {
+        const countIsNotEmpty = count.trim().length > 0;
+        const countIsNumber = /^[0-9]+$/.test(count);
+        const countInRange = /^[1-9]\d{0,4}$/.test(count);
+      
+        if (!countIsNotEmpty) {
+          return "Ошибка:  поле \"количество\" не может быть пустым";
+        }
+        if (!countIsNumber) {
+          return "Ошибка: количество должно быть целым числом";
+        }
+        if (!countInRange) {
+          return "Ошибка: количество должно быть целым числом от 1 до 99999";
+        }
+        return null;
+      };
+
     // Функция создания товара
     const handlerCreate = async () => {
-        // Регулярные выражения для проверки ввода
-        const namePattern = /^[a-zA-Zа-яА-Я][a-zA-Zа-яА-Я0-9 ]{0,24}$/;
-        const countPattern = /^[1-9]\d{0,4}$/;
 
-        // Проверка корректности введенных данных
-        if (!namePattern.test(title) || !countPattern.test(count)) {
-            handleShowAlertModal("Вы ввели некоректные данные", false)
+        const titleError = checkTitle(title);
+        if (titleError) {
+            handleShowAlertModal(titleError, false);
+            return;
+        }
+    
+        const countError = checkCount(count);
+        if (countError) {
+            handleShowAlertModal(countError, false);
             return;
         }
 

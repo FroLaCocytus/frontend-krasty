@@ -26,14 +26,14 @@ const ModalDocInfo = observer(({setIsModalOpen, selectedItem, handleShowAlertMod
 
   const updateFileInfo = async () => {
     
-    await updateDocumentInfo(selectedItem.id, description, user.role, accessRole)
+    await updateDocumentInfo(selectedItem.id, description, accessRole)
     .then(data => {
         handleShowAlertModal(`Документ ${data.title} успешно обновлён`, true)
     })
     .catch(e => {
         handleShowAlertModal(e.response.data, false)
     })
-    getAllDocuments(page,user.role).then(data => {
+    getAllDocuments(page).then(data => {
         documentStore.setDocuments(data.content)
         setMaxPage(data.totalPages)
     })
@@ -41,14 +41,14 @@ const ModalDocInfo = observer(({setIsModalOpen, selectedItem, handleShowAlertMod
   };
 
   const deleteFile = async () => {
-    await deleteDocument(selectedItem.id, user.role)
+    await deleteDocument(selectedItem.id)
     .then(data => {
         if(data === 200)handleShowAlertModal(`Документ успешно удалён`,true)
     })
     .catch(e => {
         handleShowAlertModal(e.response.data, false)
     })
-    getAllDocuments(page,user.role).then(data => {
+    getAllDocuments(page).then(data => {
         documentStore.setDocuments(data.content)
         if (data.totalPages<page && data.totalPages !== 0){
             setPage(data.totalPages)

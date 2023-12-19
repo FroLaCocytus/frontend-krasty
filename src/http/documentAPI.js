@@ -1,12 +1,11 @@
 import {$authHost} from "./index";
 
-export const updloadDocument = async (file, description, role, roles) => {
+export const updloadDocument = async (file, description, roles) => {
 
   if (file) {
       const formData = new FormData();
       formData.append('file', file);
       formData.append('description', description);
-      formData.append('role', role);
       formData.append('roles', JSON.stringify(roles));
     
       const config = {
@@ -20,11 +19,10 @@ export const updloadDocument = async (file, description, role, roles) => {
     }
 }
 
-export const updateDocumentInfo = async (id, description, role, roles) => {
+export const updateDocumentInfo = async (id, description, roles) => {
   const formData = new FormData();
   formData.append('id', id);
   formData.append('description', description);
-  formData.append('role', role);
   formData.append('roles', JSON.stringify(roles));
 
   const config = {
@@ -37,10 +35,9 @@ export const updateDocumentInfo = async (id, description, role, roles) => {
   return data
 }
 
-export const deleteDocument = async (id, role) => {
+export const deleteDocument = async (id) => {
   const queryParams = {
-    id: id,
-    role: role
+    id: id
   };
 
   const response = await $authHost.delete('document/delete', { params: queryParams });
@@ -48,48 +45,27 @@ export const deleteDocument = async (id, role) => {
 }
 
 
-export const getAllDocuments = async (page, role) => {
+export const getAllDocuments = async (page) => {
   const queryParams = {
     page: 0,
-    size: 10,
-    role: "client"
+    size: 10
   };
 
   if (page === 0){
     queryParams.page=page
-    queryParams.role=role
   } else {
     queryParams.page=page-1
-    queryParams.role=role
   }
 
   const {data} = await $authHost.get('document/all', { params: queryParams });
   return data;
 }
 
-export const getAllDocumentsByRole = async (page, role) => {
-  const queryParams = {
-    page: 0,
-    size: 10,
-    role: "client"
-  };
-
-  if (page === 0){
-    queryParams.page=page
-    queryParams.role=role
-  } else {
-    queryParams.page=page-1
-    queryParams.role=role
-  }
-  const {data} = await $authHost.get('document/all/role', { params: queryParams });
-  return data;
-}
-
-export const downloadFile = async (id, role) => {
+export const downloadFile = async (id) => {
 
   const response = await $authHost.get('document/download', {
     responseType: 'blob', // Важно для обработки файла
-    params: { id: id, role: role }
+    params: { id: id }
   });
   // Возвращаем blob для скачивания
   return response.data;

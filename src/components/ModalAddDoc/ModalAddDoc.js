@@ -31,7 +31,7 @@ const ModalAddDoc = observer(({setIsModalOpen, handleShowAlertModal, page, setPa
         handleShowAlertModal("Вы не написали описание", false)
         return
     }
-    await updloadDocument(selectedFile, description, user.role, accessRole)
+    await updloadDocument(selectedFile, description, accessRole)
     .then(data => {
         handleShowAlertModal(`Документ ${data.title} успешно добавлен`,true)
         setSelectedFile(null)
@@ -41,7 +41,7 @@ const ModalAddDoc = observer(({setIsModalOpen, handleShowAlertModal, page, setPa
     .catch(e => {
         handleShowAlertModal(e.response.data, false)
     })
-    getAllDocuments(page,user.role).then(data => {
+    getAllDocuments(page).then(data => {
         documentStore.setDocuments(data.content)
         setMaxPage(data.totalPages)
     })

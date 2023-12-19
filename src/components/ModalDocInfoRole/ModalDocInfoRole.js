@@ -7,8 +7,6 @@ import { Context } from "../../index";
 
 const ModalDocInfo = observer(({setIsModalOpen, selectedItem, handleShowAlertModal, page, setPage, setMaxPage}) => {
 
-    const {user} = useContext(Context)
-
   const [accessRole, setAccessRole] = useState([]);
   const [description, setDescription] = useState("");
 
@@ -20,7 +18,7 @@ const ModalDocInfo = observer(({setIsModalOpen, selectedItem, handleShowAlertMod
 
   const downloadDocument = async () => {
     try {
-        const blob = await downloadFile(selectedItem.id, user.role);
+        const blob = await downloadFile(selectedItem.id);
         const downloadUrl = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = downloadUrl;

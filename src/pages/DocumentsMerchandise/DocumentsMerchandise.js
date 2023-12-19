@@ -8,9 +8,8 @@ import NavButton from "../../components/NavButton/NavButton";
 import { merchandiser_buttons } from "../../nav_button";
 import { observer } from "mobx-react-lite";
 import { Context } from "../../index";
-import { getAllDocumentsByRole } from "../../http/documentAPI";
+import { getAllDocuments } from "../../http/documentAPI";
 import ListDocument from "../../components/ListDocument/ListDocument";
-import ModalAddDoc from "../../components/ModalAddDoc/ModalAddDoc";
 import ModalAlert from "../../components/ModalAlert/ModalAlert";
 
 //Свгшки стрелочек
@@ -48,7 +47,7 @@ const DocumentsMerchandise = observer(() => {
     };
 
     useEffect(()=>{
-        getAllDocumentsByRole(page, user.role).then(data => {
+        getAllDocuments(page).then(data => {
             documentStore.setDocuments(data.content)
             setMaxPage(data.totalPages)
         })

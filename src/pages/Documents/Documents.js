@@ -50,7 +50,7 @@ const Documents = observer(() => {
     };
 
     useEffect(()=>{
-        getAllDocuments(page,user.role).then(data => {
+        getAllDocuments(page).then(data => {
             documentStore.setDocuments(data.content)
             setMaxPage(data.totalPages)
         })

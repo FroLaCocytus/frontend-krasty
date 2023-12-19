@@ -26,11 +26,82 @@ body, html {
 .right_side {
     flex: 80%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
 
-    font-size: 50px;
+.title {
+    height: 15%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+  
+.title_left {
+    height: 100%;
+    width: 50%;
+}
+  
+.title_text {
+    box-sizing: border-box;
+    height: 60%;
+    padding-top: 7%;
+    padding-left: 10%;
+    font-size: 20px;
     font-family: 'Montserrat';
-    font-weight: 900;
+    font-weight: 500;
+}
+
+.brief_info {
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.brief_info_left {
+    height: 100%;
+    width: 50%;
+}
+
+.brief_info_name {
+    padding-left: 10%;
+    font-size: 40px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+}
+
+.brief_info_definition {
+    padding-left: 10%;
+    margin-top: 2%;
+    font-size: 20px;
+    font-family: 'Montserrat';
+    font-weight: 300;
+}
+
+.brief_info_number {
+    padding-left: 10%;
+    margin-top: 12%;
+    font-size: 20px;
+    font-family: 'Montserrat';
+    font-weight: 300;
+}
+
+.brief_info_right {
+    height: 100%;
+    width: 50%;
+}
+
+.description {
+    height: 43%;
+    width: 100%;
+}
+
+.text {
+    padding-left: 5%;
+    margin-top: 3%;
+    width: 68%;
+    text-align: justify;
+    font-size: 18px;
+    font-family: 'Montserrat';
+    font-weight: 300;
+
 }

@@ -41,15 +41,13 @@ const Basket = observer(() => {
     
         try {
             const userInfo = await getUserInfo();
-    
             // Проверяем, заполнен ли профиль пользователя
-            if (userInfo.name == null || userInfo.email == null || userInfo.phone_number == null || userInfo.birthday == null) {
+            if (userInfo.name == null || userInfo.email == null || userInfo.phone_number == null || userInfo.address == null) {
                 alert("Заполните профиль!");
                 return; 
             }
 
             await createBasketProduct(data, user.login);
-
             localStorage.removeItem('selectedProducts');
             setSelectedProducts([]);
     

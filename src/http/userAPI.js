@@ -29,7 +29,7 @@ export const getUserInfo = async () => {
     return data
 }
 
-export const updateUserInfo = async (name, email, phone_number, birthday) => {
-    const {data} = await $authHost.post('user/info', {name, email, phone_number, birthday})
+export const updateUserInfo = async (name, email, phone_number, address) => {
+    const {data} = await $authHost.put('user/info', {name, email, phone_number, address})
     return data
 }

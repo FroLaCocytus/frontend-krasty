@@ -8,3 +8,8 @@ export const createBasketProduct = async (listProduct) => {
     return data
 }
 
+export const getBasket = async () => {
+
+    const {data} = await $authHost.get('basket/get')
+    return data
+}

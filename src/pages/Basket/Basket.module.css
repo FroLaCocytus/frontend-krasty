@@ -112,3 +112,60 @@ body, html {
 .cancel_button:hover {
     background-color: #7D0303;
 }
+
+.status_bar {
+    padding-left: 5%;
+    width: 70%;
+    height: 20%;
+}
+
+.order_info {
+    margin-top: 2%;
+    padding-left: 5%;
+    width: 70%;
+    height: 55%;
+}
+
+.product {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.product_image {
+    width: 120px; /* Или другой размер, который вам подходит */
+    height: auto;
+    border-radius: 4px;
+    margin-right: 20px;
+}
+
+.product_details {
+    flex-grow: 1;
+}
+
+.product_name {
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.2em;
+    margin-bottom: 8px;
+}
+
+.product_description {
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.product_count {
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-weight: bold;
+    color: #333;
+}

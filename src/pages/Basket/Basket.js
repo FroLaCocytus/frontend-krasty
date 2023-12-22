@@ -8,11 +8,13 @@ import NavButton from "../../components/NavButton/NavButton";
 import { client_buttons } from "../../nav_button";
 import ListItems from "../../components/ListItems/ListItems";
 import { observer } from "mobx-react-lite";
-import { createBasketProduct } from "../../http/basketAPI";
 import { Context } from "../../index";
 import { getUserInfo } from "../../http/userAPI";
-import ModalAlert from "../../components/ModalAlert/ModalAlert";
+import { createBasketProduct } from "../../http/basketAPI";
+import { getBasket } from "../../http/basketAPI";
 import { getOneOrder } from "../../http/orderAPI";
+import ModalAlert from "../../components/ModalAlert/ModalAlert";
+import OrderStatusBar from "../../components/OrderStatusBar/OrderStatusBar"
 
 
 //Падежи 
@@ -23,6 +25,7 @@ const Basket = observer(() => {
     
     const [selectedProducts, setSelectedProducts] = useState([]);
     const [orderPrice, setOrderPrice] = useState(0);
+    const [basketProduct, setBasketProduct] = useState([])
 
     const {user} = useContext(Context);
 
@@ -53,6 +56,9 @@ const Basket = observer(() => {
                 description: data.description,
                 status: data.status
             });
+            const basket = await getBasket();
+            setBasketProduct(basket.products);
+
         } catch (e) {
             handleShowAlertModal(e.response.data, false);
         }
@@ -123,11 +129,20 @@ const Basket = observer(() => {
                             <div className={styles.title_text}>Ваш заказ готовится</div>
                         </div>
                     </div>
-                    <div>
-                       Информация о заказе: {currentOrder.description}
+                    <div className={styles.status_bar}>
+                        <OrderStatusBar status={currentOrder.status} />
                     </div>
-                    <div>
-                       Статус заказа: {currentOrder.status}
+                    <div className={styles.order_info}>
+                        {basketProduct.map(product => (
+                            <div className={styles.product} key={product.name}>
+                                <img src={process.env.REACT_APP_API_URL + product.img_path} className={styles.product_image} />
+                                <div className={styles.product_details}>
+                                    <div className={styles.product_name}>{product.name}</div>
+                                    <div className={styles.product_description}>{product.description}</div>
+                                    <div className={styles.product_count}>Количество: {product.count}</div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             ) : (

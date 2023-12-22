@@ -1,0 +1,84 @@
+@keyframes loadingAnimation {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+
+/* OrderStatusBar.module.css */
+.orderStatusContainer {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 0 10px; 
+  }
+  
+  .statusLine {
+    flex-grow: 1;
+    height: 4px;
+    background-color: #e0e0e0;
+    position: relative;
+  }
+  
+  .statusLine.active:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #3b6f8e; 
+  }
+  
+  .statusPoint {
+    position: relative; 
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    margin: 0 5px;
+    z-index: 1; 
+  }
+  
+  .statusText {
+    text-align: center;
+    width: 100px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    position: absolute;
+    transform: translate(-38%, 80%); 
+    color: #000; 
+    transition: all 0.3s ease-in-out; 
+  }
+  
+  .statusPoint.active {
+    background-color: #3b6f8e; 
+  }
+
+  .statusPoint.active .statusText {
+    color: #3b6f8e; 
+    font-weight: 600;
+  }
+  
+.firstLine,
+.lastLine {
+  flex-grow: 0.5; 
+}
+
+.statusLine.loading {
+    overflow: hidden; /* Убедитесь, что анимация не выйдет за пределы линии */
+  }
+
+.statusLine.loading::before {
+content: '';
+display: block;
+height: 100%;
+background-color: #3b6f8e;
+/* animation: loadingAnimation 2s linear infinite;  */
+animation: loadingAnimation 3s ease infinite;/* Здесь вы можете настроить скорость анимации */
+}

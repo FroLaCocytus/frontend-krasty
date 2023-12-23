@@ -10,47 +10,78 @@ import NavButton from "../../components/NavButton/NavButton";
 import { cashier_buttons } from "../../nav_button";
 
 //HTTP
-import { getOrders } from "../../http/orderAPI";
+import { getCreatedOrders } from "../../http/orderAPI";
+import { updateOrder } from "../../http/orderAPI";
+
+
+//Свгшки стрелочек
+import { ReactComponent as LeftArrow } from '../../img/arrow_left.svg';
+import { ReactComponent as RightArrow } from '../../img/arrow_right.svg';
+
+import ModalAlert from "../../components/ModalAlert/ModalAlert";
 
 //Падежи 
 import { wordСase } from "../../utils/wordCase";
-import Order from "../../components/OrderCard/OrderCard";
 
 const CashierPage = observer(() => {
 
-    const [activeOrders, setActiveOrders] = useState([]);
-    const {user} = useContext(Context);
+    const flagOutput = true 
 
-    const flagOutput = true;
-
+    const {order} = useContext(Context)
     
+    const [countOrders, setCountOrders] = useState(0)
+
+    // Модалка с уведомлениями
+    const [showModal, setShowModal] = useState(false);
+    const [modalMessage, setModalMessage] = useState("");
+    const [modalStatus, setModalStatus] = useState(true);
+
+    const [page, setPage] = useState(1);
+    const [maxPage , setMaxPage ] = useState(1);
+
+
+    const handleShowAlertModal = (message, status) => {
+        setModalMessage(message); 
+        setModalStatus(status);
+        setShowModal(true); 
+    };
+
+    const handleLeftArrow = () => {
+        if (maxPage === 0) return
+        setPage(prevPage => Math.max(prevPage - 1, 1));
+    };
+    
+    const handleRightArrow = () => {
+        if (maxPage === 0) return
+        setPage(prevPage => Math.min(prevPage + 1, maxPage));
+    };
+
     useEffect(()=>{
+        getCreatedOrders(page).then(data => {
+            order.setOrders(data.orders)
+            setCountOrders(data.totalItems)
+            setMaxPage(data.totalPages)
 
-        const fetchOrders = async () => {
-            try {
-                const data = await getOrders(user.role);
-                if (data) {
-                    setActiveOrders(data);
-                } else {
-                    console.error("Data undefined.");
-                }
-            } catch (e) {
-                if (e.response && e.response.data) {
-                    alert(e.response.data);
-                } else {
-                    console.error("Error response or data is undefined.");
-                }
-            }
-        };
+        })
+        
+    }, [page])
 
-        const intervalId = setInterval(fetchOrders, 10000);
+    const handleAcceptOrder = async (orderId, status) => {
+        await updateOrder(orderId, status)
+        .then(data => {
+            if(data === 200)handleShowAlertModal(`Заказ №${orderId} принят к исполнению`,true)
+        })
+        .catch(e => {
+            handleShowAlertModal(e.response.data, false)
+        })
 
-        // Очищаем интервал при размонтировании компонента
-        return () => clearInterval(intervalId);
+        getCreatedOrders(page).then(data => {
+            order.setOrders(data.orders)
+            setCountOrders(data.totalItems)
+            setMaxPage(data.totalPages)
 
-    }, [])
-
-    const order_count = activeOrders.length; // кол-во заказов
+        })
+    };
 
     return (
         <div className={styles.container}>
@@ -63,20 +94,40 @@ const CashierPage = observer(() => {
                 <div className={styles.title}>
                     <div className={styles.title_left}>
                         <div className={styles.title_text}>Заказы</div>
-                        <div className={styles.title_description}>
-                            {order_count} {wordСase(order_count, ["заказ", "заказа", "заказов"])}
+                        <div className={styles.title_description}>{countOrders} {wordСase(countOrders, ["заказ", "заказа", "заказов"])}</div>
+                    </div>
+                    <div className={styles.title_right}>
+                        <div className={styles.pagination}>
+                            <LeftArrow onClick={handleLeftArrow} className={styles.left_arrow}/>
+                            <div className={styles.page}>{page}</div>
+                            <RightArrow onClick={handleRightArrow} className={styles.right_arrow}/>
                         </div>
                     </div>
                 </div>
-
                 <div className={styles.list_order}>
-                    {activeOrders.map(order => (
-                        <Order key={order.id} order={order} />
+                    {order.orders.map((orderItem) => (
+                        <div key={orderItem.id} className={styles.order_card}>
+                        <div className={styles.order_content}>
+                            <div className={styles.order_id}>Заказ №{orderItem.id}</div>
+                            <div className={styles.order_description}>{orderItem.description}</div>
+                        </div>
+                        <div className={styles.button_box}>
+                            <button 
+                                className={styles.accept_button}
+                                onClick={() => handleAcceptOrder(orderItem.id, "accepted")}
+                            >
+                                Принять заказ
+                            </button>
+                        </div>
+
+                    </div>
                     ))}
                 </div>
             </div>
+            <ModalAlert isOpen={showModal} message={modalMessage} onClose={() => setShowModal(false)} status={modalStatus}/>
         </div>
     );
+
 
 });
 

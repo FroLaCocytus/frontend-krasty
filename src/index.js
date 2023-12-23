@@ -5,6 +5,7 @@ import UserStore from "./store/UserStore";
 import ProductStore from "./store/ProductStore";
 import DocumentStore from "./store/DocumentStore";
 import MerchandiseStore from "./store/MerchandiseStore";
+import OrderStore from "./store/OrderStore";
 
 
 export const Context = createContext(null);
@@ -17,7 +18,9 @@ root.render(
       user: new UserStore(),
       product: new ProductStore(),
       documentStore: new DocumentStore(),
-      merchandise: new MerchandiseStore()
+      merchandise: new MerchandiseStore(),
+      order: new OrderStore()
+
   }}>
     <App />
   </Context.Provider>

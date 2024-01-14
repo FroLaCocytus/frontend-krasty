@@ -4,6 +4,7 @@ import imageRestaurant from './img/restaurant.png';
 import imageBasket from './img/basket.png';
 import imageDocument from './img/document.png';
 import imageTomato from './img/tomato.png';
+import imageBox from './img/box.png';
 
 
 export const client_buttons = [
@@ -74,6 +75,16 @@ export const chef_buttons = [
         text: "Документы",
         link: imageDocument,
         route: '/chef/document'
+    }
+
+]
+
+export const junior_chef_buttons = [
+
+    {
+        text: "Сортировка",
+        link: imageBox,
+        route: '/junior/packaging'
     }
 
 ]

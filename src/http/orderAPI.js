@@ -17,10 +17,11 @@ export const getOneOrder = async () => {
 //     return data
 // }
 
-export const getCreatedOrders = async (page) => {
+export const getCreatedOrders = async (page, status) => {
     const queryParams = {
         page: 0,
-        size: 10
+        size: 10,
+        status: status
       };
     
       if (page === 0){
@@ -29,7 +30,7 @@ export const getCreatedOrders = async (page) => {
         queryParams.page=page-1
       }
 
-    const {data} = await $authHost.get('order/created', { params: queryParams })
+    const {data} = await $authHost.get('order/all', { params: queryParams })
     return data
 }
 

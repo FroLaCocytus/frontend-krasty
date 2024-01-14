@@ -12,10 +12,12 @@ import DocumentsMerchandise from "./pages/DocumentsMerchandise/DocumentsMerchand
 import DocumentsChef from "./pages/DocumentsChef/DocumentsChef"
 
 import CashierPage from "./pages/CashierPage/CashierPage"
+import PackagingPage from "./pages/PackagingPage/PackagingPage"
 
 
-import { BASKET_ROUTE, LOGIN_ROUTE, MENU_ROUTE, REGISTRATION_ROUTE, START_ROUTE, PROFILE_ROUTE, RESTAURANT_ROUTE, 
-    DOCUMENT_ROUTE, STAFF_ROUTE, WAREHOUSE_ROUTE, CASHIER_ROUTE, DOCUMENT_MERCHANDISE_ROUTE, DOCUMENT_CHEF_ROUTE } from "./utils/consts"
+import { BASKET_ROUTE, LOGIN_ROUTE, MENU_ROUTE, REGISTRATION_ROUTE, START_ROUTE, PROFILE_ROUTE, RESTAURANT_ROUTE,
+     DOCUMENT_ROUTE, STAFF_ROUTE, WAREHOUSE_ROUTE, CASHIER_ROUTE, DOCUMENT_MERCHANDISE_ROUTE, DOCUMENT_CHEF_ROUTE, 
+     PACKAGING_ROUTE, COURIERS_ROUTE } from "./utils/consts"
 
 export const publicRoutes = [
     {
@@ -87,4 +89,13 @@ export const chefRoutes = [
         path: DOCUMENT_CHEF_ROUTE,
         Element: <DocumentsChef />
     }
+]
+
+
+export const juniorChefRoutes = [
+    {
+        path: PACKAGING_ROUTE,
+        Element: <PackagingPage />
+    }
+
 ]

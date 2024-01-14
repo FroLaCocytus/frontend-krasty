@@ -1,13 +1,13 @@
 //База
 import React, {useState, useContext, useEffect} from "react";
-import styles from './CashierPage.module.css'
+import styles from './PackagingPage.module.css'
 import { observer } from "mobx-react-lite";
 import { Context } from "../../index";
 
 //Всё для навбара
 import NavBar from "../../components/NavBar/NavBar";
 import NavButton from "../../components/NavButton/NavButton";
-import { cashier_buttons } from "../../nav_button";
+import { junior_chef_buttons } from "../../nav_button";
 
 //HTTP
 import { getCreatedOrders } from "../../http/orderAPI";
@@ -17,12 +17,13 @@ import { updateOrder } from "../../http/orderAPI";
 //Свгшки стрелочек
 import { ReactComponent as LeftArrow } from '../../img/arrow_left.svg';
 import { ReactComponent as RightArrow } from '../../img/arrow_right.svg';
+
 import ModalAlert from "../../components/ModalAlert/ModalAlert";
 
 //Падежи 
 import { wordСase } from "../../utils/wordCase";
 
-const CashierPage = observer(() => {
+const PackagingPage = observer(() => {
 
     const flagOutput = true 
 
@@ -56,7 +57,7 @@ const CashierPage = observer(() => {
     };
 
     useEffect(()=>{
-        getCreatedOrders(page, "created").then(data => {
+        getCreatedOrders(page, "accepted").then(data => {
             order.setOrders(data.orders)
             setCountOrders(data.totalItems)
             setMaxPage(data.totalPages)
@@ -68,13 +69,13 @@ const CashierPage = observer(() => {
     const handleAcceptOrder = async (orderId, status) => {
         await updateOrder(orderId, status)
         .then(data => {
-            if(data === 200)handleShowAlertModal(`Заказ №${orderId} принят к исполнению`,true)
+            if(data === 200)handleShowAlertModal(`Заказ №${orderId} перешёл в сборку`,true)
         })
         .catch(e => {
             handleShowAlertModal(e.response.data, false)
         })
 
-        getCreatedOrders(page, "created").then(data => {
+        getCreatedOrders(page, "accepted").then(data => {
             order.setOrders(data.orders)
             setCountOrders(data.totalItems)
             setMaxPage(data.totalPages)
@@ -86,7 +87,7 @@ const CashierPage = observer(() => {
         <div className={styles.container}>
             <div className={styles.left_side}>
                 <NavBar>
-                    <NavButton data={cashier_buttons} flagOutput={flagOutput}/>
+                    <NavButton data={junior_chef_buttons} flagOutput={flagOutput}/>
                 </NavBar>
             </div>
             <div className={styles.right_side}>
@@ -113,12 +114,11 @@ const CashierPage = observer(() => {
                         <div className={styles.button_box}>
                             <button 
                                 className={styles.accept_button}
-                                onClick={() => handleAcceptOrder(orderItem.id, "accepted")}
+                                onClick={() => handleAcceptOrder(orderItem.id, "packaging")}
                             >
-                                Принять заказ
+                                Собирать заказ
                             </button>
                         </div>
-
                     </div>
                     ))}
                 </div>
@@ -130,4 +130,4 @@ const CashierPage = observer(() => {
 
 });
 
-export default CashierPage;
+export default PackagingPage;

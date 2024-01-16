@@ -16,7 +16,7 @@ export const DOCUMENT_CHEF_ROUTE = '/chef/document'
 export const CASHIER_ROUTE = '/cashier'
 
 export const PACKAGING_ROUTE = '/junior/packaging'
-export const COURIERS_ROUTE = '/junior/couriers'
+export const COURIER_ROUTE = '/courier'
 
 
 

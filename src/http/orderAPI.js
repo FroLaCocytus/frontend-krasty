@@ -1,48 +1,47 @@
-import {$authHost} from "./index";
+import { $authHost } from "./index";
 
-// export const createOrder = async (description, login) => {
-//     const requestData = {description: description, login: login};
-//     const {data} = await $authHost.post('order/create', requestData)
-//     return data
-// }
 
 export const getOneOrder = async () => {
-    const {data} = await $authHost.get('order/one')
-    return data
+  const { data } = await $authHost.get('order/one')
+  return data
 }
-  
-// export const getOrderInfo = async (login) => {
-//     const requestData = {login: login};
-//     const {data} = await $authHost.post('order/info', requestData)
-//     return data
-// }
 
-export const getCreatedOrders = async (page, status) => {
+export const getOrderCourier = async () => {
+  const { data } = await $authHost.get('order/courier')
+  return data
+}
+
+
+export const getOrders = async (page, status) => {
+  try {
     const queryParams = {
-        page: 0,
-        size: 10,
-        status: status
-      };
-    
-      if (page === 0){
-        queryParams.page=page
-      } else {
-        queryParams.page=page-1
-      }
+      page: 0,
+      size: 10,
+      status: status
+    };
 
-    const {data} = await $authHost.get('order/all', { params: queryParams })
+    if (page === 0) {
+      queryParams.page = page
+    } else {
+      queryParams.page = page - 1
+    }
+
+    const { data } = await $authHost.get('order/all', { params: queryParams })
     return data
+  } catch (error) {
+    console.log(error.response.data)
+  }
+
 }
 
 export const updateOrder = async (id, status) => {
-  const requestData = {id: id, status: status};
-  const response = await $authHost.put('order/update', requestData)
-  return response.status
+  try {
+    const requestData = { id: id, status: status };
+    const response = await $authHost.put('order/update', requestData)
+    return response.status
+  } catch (error) {
+    console.log(error.response.data)
+  }
 }
 
-
-export const getOrders = async () => {
-    const {data} = await $authHost.get('order/all')
-    return data
-}
 

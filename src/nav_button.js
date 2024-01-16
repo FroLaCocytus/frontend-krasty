@@ -88,3 +88,13 @@ export const junior_chef_buttons = [
     }
 
 ]
+
+export const courier_buttons = [
+
+    {
+        text: "Доставка",
+        link: imageProfile,
+        route: '/courier'
+    }
+
+]

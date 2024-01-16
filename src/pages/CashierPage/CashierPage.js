@@ -10,7 +10,7 @@ import NavButton from "../../components/NavButton/NavButton";
 import { cashier_buttons } from "../../nav_button";
 
 //HTTP
-import { getCreatedOrders } from "../../http/orderAPI";
+import { getOrders } from "../../http/orderAPI";
 import { updateOrder } from "../../http/orderAPI";
 
 
@@ -56,7 +56,7 @@ const CashierPage = observer(() => {
     };
 
     useEffect(()=>{
-        getCreatedOrders(page, "created").then(data => {
+        getOrders(page, "created").then(data => {
             order.setOrders(data.orders)
             setCountOrders(data.totalItems)
             setMaxPage(data.totalPages)
@@ -74,7 +74,7 @@ const CashierPage = observer(() => {
             handleShowAlertModal(e.response.data, false)
         })
 
-        getCreatedOrders(page, "created").then(data => {
+        getOrders(page, "created").then(data => {
             order.setOrders(data.orders)
             setCountOrders(data.totalItems)
             setMaxPage(data.totalPages)

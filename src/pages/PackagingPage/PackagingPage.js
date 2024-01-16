@@ -10,7 +10,7 @@ import NavButton from "../../components/NavButton/NavButton";
 import { junior_chef_buttons } from "../../nav_button";
 
 //HTTP
-import { getCreatedOrders } from "../../http/orderAPI";
+import { getOrders } from "../../http/orderAPI";
 import { updateOrder } from "../../http/orderAPI";
 
 
@@ -57,7 +57,7 @@ const PackagingPage = observer(() => {
     };
 
     useEffect(()=>{
-        getCreatedOrders(page, "accepted").then(data => {
+        getOrders(page, "accepted").then(data => {
             order.setOrders(data.orders)
             setCountOrders(data.totalItems)
             setMaxPage(data.totalPages)
@@ -75,7 +75,7 @@ const PackagingPage = observer(() => {
             handleShowAlertModal(e.response.data, false)
         })
 
-        getCreatedOrders(page, "accepted").then(data => {
+        getOrders(page, "accepted").then(data => {
             order.setOrders(data.orders)
             setCountOrders(data.totalItems)
             setMaxPage(data.totalPages)

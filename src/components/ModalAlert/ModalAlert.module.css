@@ -52,3 +52,10 @@
     background-color: #FFD3D8;
   }
   
+
+  @media screen and (max-width: 480px) {
+    .modal {
+      width: 60vw;
+      height: 20vh;
+    }
+  }

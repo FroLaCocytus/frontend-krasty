@@ -1,234 +1,219 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-  }
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 
 .container {
-    display: flex;
-    background-color: #00B0EF;
-    user-select: none;
-  }
+  display: flex;
+  background-color: #00B0EF;
+  user-select: none;
+}
 
 .left_side,
 .right_side {
-    flex: 1;
-    height: 100vh; 
+  flex: 1;
+  height: 100vh;
 
-    }
+}
 
 /*Левая часть страницы*/
 .left_side {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 40%;
 }
 
 .logo_svg {
-    margin-left:20%;
-    height: 60%;
-    width: auto;
-  }
+  margin-left: 20%;
+  height: 60%;
+  width: auto;
+}
 
 /*Правая часть страницы*/
 .right_side {
-    flex: 60%;
+  flex: 60%;
 }
 
-    /*Форма*/
+/*Форма*/
 .form {
-    height: 65%;
-    width: 65%;
-    margin-top: 6%;
-    margin-left:15%;
-    background-color: #BEEAFA;
-    border: none;
-    border-radius: 50px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 65%;
+  width: 65%;
+  margin-top: 6%;
+  margin-left: 15%;
+  background-color: #BEEAFA;
+  border: none;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 }
 
 .form_text {
-    height: 19%;
-    text-align: center;
-    font-size: calc((1vw + 1vh)*1.33);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    color: #000000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 19%;
+  text-align: center;
+  font-size: calc((1vw + 1vh)*1.33);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .form_input_box_login,
 .form_input_box_password {
-    height: 15%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .form_input_box_password {
-    margin-top: 7%;
+  margin-top: 7%;
 }
 
 .form_input {
-    height: 93%;
-    width: 85%;
-    border: none;
-    border-radius: 50px;
-    padding-left:7%;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    font-size: 24px;
-    color: black;
-    background-color: #DFF5FD;
+  height: 93%;
+  width: 85%;
+  border: none;
+  border-radius: 50px;
+  padding-left: 7%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: calc((1vw + 1vh)*1);
+  color: black;
+  background-color: #DFF5FD;
 }
 
 .form_input::placeholder {
-    color: #BBBABF;
-  }
-  
+  color: #BBBABF;
+}
+
 .form_input:focus {
-    outline: none;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+  outline: none;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
 
 .form_small_text {
-    height: 22%;
-    display: flex;
-    color: black;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    font-size: 20px;
+  height: 22%;
+  display: flex;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: calc((1vw + 1vh)*0.83);
 }
 
 .form_small_text_registration {
-    margin-left: 1%;
-    cursor: pointer;
-    text-decoration: underline;
+  margin-left: 1%;
+  cursor: pointer;
+  text-decoration: underline;
 
 }
 
 .form_small_text_registration:hover {
-    color: #666666;
+  color: #666666;
 
-    
-  }
 
-    /*Кнопка*/
+}
+
+/*Кнопка*/
 .form_button {
-    width: 65%;
-    height: 9%;
-    margin-top: 8%;
-    margin-left:15%;
-    border: none;
-    border-radius: 50px;
-    font-size: 25px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    cursor: pointer;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    background-color: #1F5569;
+  width: 65%;
+  height: 9%;
+  margin-top: 8%;
+  margin-left: 15%;
+  border: none;
+  border-radius: 50px;
+  font-size: calc((1vw + 1vh)*1.04);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  background-color: #1F5569;
 }
 
 .form_button:hover {
-    background-color: #0C3848;
-  }
-
-
-  /* Планшет */
-@media screen and (max-width: 1365px) {
-  
-  .logo_svg {
-    margin-top: 3%; 
-    height: 30%;
-  }
-
-  .welcometext {
-    margin-top: 4%;
-    font-size: calc((1vw + 1vh)*1.95);
-  }
-
-  .buttons {
-    width: 100%;
-    height: 30%;
-    margin-top: 7%;
-    gap: 5%;
-  }
-  
-  .login_button,
-  .register_button {
-    width: 50%;
-    height: 30%;
-    font-size: calc((1vw + 1vh)*1.4);
-  }
-}
-
-/* Между телефоном и планшетом */
-@media screen and (max-width: 900px) {
-  
-  .logo_svg {
-    margin-top: 5%; 
-    height: 32%;
-  }
-
-  .welcometext {
-    margin-top: 4%;
-    font-size: calc((1vw + 1vh)*2.25);
-  }
-
-  .buttons {
-    width: 100%;
-    height: 30%;
-    margin-top: 7%;
-    gap: 5%;
-  }
-  
-  .login_button,
-  .register_button {
-    width: 60%;
-    height: 37%;
-    font-size: calc((1vw + 1vh)*1.8);
-  }
+  background-color: #0C3848;
 }
 
 
-/* Стили для мобильных устройств с шириной экрана до 480px */
 @media screen and (max-width: 480px) {
-  .logo_svg {
-    margin-top: 10%; 
-    height: 25%;
+  .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
-  .welcometext {
-    margin-top: 10%;
-    font-size: calc((1vw + 1vh)*2.25);
-  }
-
-  .buttons {
+  .left_side,
+  .right_side {
+    flex: none;
     width: 100%;
-    height: 30%;
-    margin-top: 25%;
-    gap: 2%;
   }
-  
-  .login_button,
-  .register_button {
-    width: 70%;
-    height: 28%;
-    font-size: calc((1vw + 1vh)*1.6);
+
+  .left_side {
+    height: 30vh;
   }
+
+  .right_side {
+    height: 70vh;
+
+  }
+
+  .logo_svg {
+    margin-left: 1%;
+    height: calc((1vw + 1vh)*14);
+    width: auto;
 }
 
+  .form {
+    height: auto;
+    width: 85%;
+    margin-top: 1%;
+    margin-left: 7.5%;
+    border-radius: 25px;
+  }
+
+  .form_text {
+    font-size: calc((1vw + 1vh)*1.9); /* Уменьшение размера шрифта для меньших экранов */
+    height: auto;
+    padding: 5% 0;
+  }
+
+  .form_input_box_login,
+  .form_input_box_password {
+    height: calc((1vw + 1vh)*4.31);
+    margin-top: 5%;
+  }
+
+  .form_input {
+    font-size: calc((1vw + 1vh)*1.44);
+  }
+
+  .form_small_text {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-size: calc((1vw + 1vh)*1.26);
+    height: auto;
+  }
+
+
+
+  .form_button {
+    width: 85%;
+    margin-top: 5%;
+    margin-left: 7.5%;
+    font-size: 4.5vw;
+  }
+}

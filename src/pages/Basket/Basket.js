@@ -118,7 +118,7 @@ const Basket = observer(() => {
     const handleCompleteOrder = async (orderId, status) => {
         await updateOrder(orderId, status)
             .then(data => {
-                if (data === 200) handleShowAlertModal(`Заказ №${orderId} успешно получен`, true)
+                if (data === 200) handleShowAlertModal(`Заказ успешно получен`, true)
                 setCurrentOrder(null)
             })
             .catch(e => {

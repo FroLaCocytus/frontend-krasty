@@ -12,7 +12,7 @@ import { Context } from "../../index";
 import { getUserInfo } from "../../http/userAPI";
 import { createBasketProduct } from "../../http/basketAPI";
 import { getBasket } from "../../http/basketAPI";
-import { getOneOrder } from "../../http/orderAPI";
+import { getOneOrder, updateOrder } from "../../http/orderAPI";
 import ModalAlert from "../../components/ModalAlert/ModalAlert";
 import OrderStatusBar from "../../components/OrderStatusBar/OrderStatusBar"
 
@@ -22,17 +22,17 @@ import { wordСase } from "../../utils/wordCase";
 
 
 const Basket = observer(() => {
-    
+
     const [selectedProducts, setSelectedProducts] = useState([]);
     const [orderPrice, setOrderPrice] = useState(0);
     const [basketProduct, setBasketProduct] = useState([])
 
-    const {user} = useContext(Context);
+    const { user } = useContext(Context);
 
     const dish_count = selectedProducts.length; // кол-во блюд
 
     // Состояние текущего заказа
-    const [currentOrder, setCurrentOrder] = useState(null); 
+    const [currentOrder, setCurrentOrder] = useState(null);
 
     // Модалка с уведомлениями
     const [showModal, setShowModal] = useState(false);
@@ -40,9 +40,9 @@ const Basket = observer(() => {
     const [modalStatus, setModalStatus] = useState(true);
 
     const handleShowAlertModal = (message, status) => {
-        setModalMessage(message); 
+        setModalMessage(message);
         setModalStatus(status);
-        setShowModal(true); 
+        setShowModal(true);
     };
 
     // Функция для получения информации о текущем заказе
@@ -53,6 +53,7 @@ const Basket = observer(() => {
                 return;
             }
             setCurrentOrder({
+                id: data.id,
                 description: data.description,
                 status: data.status
             });
@@ -63,7 +64,7 @@ const Basket = observer(() => {
             handleShowAlertModal(e.response.data, false);
         }
     };
-    
+
     const calculateOrderPrice = () => {
         let total = 0;
         selectedProducts.forEach(product => {
@@ -73,17 +74,17 @@ const Basket = observer(() => {
     };
 
     useEffect(() => {
-      checkCurrentOrder()
+        checkCurrentOrder()
 
-      const storedProducts = localStorage.getItem('selectedProducts');
-      if (storedProducts) {
-        setSelectedProducts(JSON.parse(storedProducts));
-      }
+        const storedProducts = localStorage.getItem('selectedProducts');
+        if (storedProducts) {
+            setSelectedProducts(JSON.parse(storedProducts));
+        }
     }, []);
 
     useEffect(() => {
         calculateOrderPrice()
-      }, [selectedProducts]);
+    }, [selectedProducts]);
 
 
     const ordering = async () => {
@@ -93,13 +94,13 @@ const Basket = observer(() => {
             // Проверяем, заполнен ли профиль пользователя
             if (userInfo.name == null || userInfo.email == null || userInfo.phone_number == null || userInfo.address == null) {
                 handleShowAlertModal("Для оформления заказа необходимо заполнить профиль", false);
-                return; 
+                return;
             }
 
             await createBasketProduct(data, user.login);
             localStorage.removeItem('selectedProducts');
             setSelectedProducts([]);
-    
+
             handleShowAlertModal("Заказ успешно создан!", true);
             checkCurrentOrder()
 
@@ -114,11 +115,23 @@ const Basket = observer(() => {
         handleShowAlertModal("Заказ успешно удалён!", true);
     }
 
+    const handleCompleteOrder = async (orderId, status) => {
+        await updateOrder(orderId, status)
+            .then(data => {
+                if (data === 200) handleShowAlertModal(`Заказ №${orderId} успешно получен`, true)
+                setCurrentOrder(null)
+            })
+            .catch(e => {
+                handleShowAlertModal(e.response.data, false)
+            })
+        checkCurrentOrder()
+    };
+
     return (
         <div className={styles.container}>
             <div className={styles.left_side}>
                 <NavBar>
-                    <NavButton data={client_buttons}/>
+                    <NavButton data={client_buttons} />
                 </NavBar>
             </div>
             {currentOrder ? (
@@ -127,6 +140,16 @@ const Basket = observer(() => {
                     <div className={styles.title}>
                         <div className={styles.title_left}>
                             <div className={styles.title_text}>Ваш заказ готовится</div>
+                        </div>
+                        <div className={styles.button_box}>
+                            {currentOrder.status === "delivering" && (
+                                <button
+                                    className={styles.complete_button}
+                                    onClick={() => handleCompleteOrder(currentOrder.id, "completed")}
+                                >
+                                    Заказ получен
+                                </button>
+                            )}
                         </div>
                     </div>
                     <div className={styles.status_bar}>
@@ -156,7 +179,7 @@ const Basket = observer(() => {
                         </div>
                     </div>
                     <div className={styles.list}>
-                        <ListItems selectedProducts={selectedProducts} setSelectedProducts={setSelectedProducts}/>
+                        <ListItems selectedProducts={selectedProducts} setSelectedProducts={setSelectedProducts} />
                     </div>
                     {dish_count > 0 && (
                         <div className={styles.buttons_box}>
@@ -166,7 +189,7 @@ const Basket = observer(() => {
                     )}
                 </div>
             )}
-            <ModalAlert isOpen={showModal} message={modalMessage} onClose={() => setShowModal(false)} status={modalStatus}/>
+            <ModalAlert isOpen={showModal} message={modalMessage} onClose={() => setShowModal(false)} status={modalStatus} />
         </div>
     );
 

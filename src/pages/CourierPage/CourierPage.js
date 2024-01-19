@@ -103,24 +103,6 @@ const CourierPage = observer(() => {
         checkCurrentOrder()
     };
 
-    const handleCompleteOrder = async (orderId, status) => {
-        await updateOrder(orderId, status)
-            .then(data => {
-                if (data === 200) handleShowAlertModal(`Заказ №${orderId} был успешно выдан клиенту`, true)
-                setCurrentOrder(null)
-            })
-            .catch(e => {
-                handleShowAlertModal(e.response.data, false)
-            })
-
-        getOrders(page, "packaging").then(data => {
-            order.setOrders(data.orders)
-            setCountOrders(data.totalItems)
-            setMaxPage(data.totalPages)
-
-        })
-    };
-
     return (
         <div className={styles.container}>
             <div className={styles.left_side}>
@@ -130,8 +112,8 @@ const CourierPage = observer(() => {
             </div>
             {currentOrder ? (
                 <div className={styles.right_side}>
-                    <div className={styles.order_card}>
-                        <div className={styles.order_content}>
+                    <div className={styles.order_info}>
+                        <div className={styles.order_info_content}>
                             <div className={styles.order_header}>
                                 <div>Текущий заказ</div>
                             </div>
@@ -147,14 +129,6 @@ const CourierPage = observer(() => {
                                 <div className={styles.detail_label}>Описание:</div>
                                 <div className={styles.detail_value}>{currentOrder.description}</div>
                             </div>
-                        </div>
-                        <div className={styles.button_box}>
-                            <button
-                                className={styles.complete_button}
-                                onClick={()=>handleCompleteOrder(currentOrder.id, "completed")}
-                            >
-                                Заказ Выдан
-                            </button>
                         </div>
                     </div>
                 </div>

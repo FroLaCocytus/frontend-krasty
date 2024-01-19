@@ -1,8 +1,9 @@
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     height: 100%;
-  }
+}
 
 .container {
     height: 100%;
@@ -16,7 +17,7 @@ body, html {
     display: flex;
     align-items: center;
     cursor: pointer;
-  }
+}
 
 .button_box:hover {
     background-color: white;
@@ -36,7 +37,7 @@ body, html {
 }
 
 .text {
-    font-size: 20px ;
+    font-size: calc((1vw + 1vh)*0.83);
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     height: auto;
@@ -44,7 +45,7 @@ body, html {
 }
 
 .output {
-    font-size: 20px ;
+    font-size: calc((1vw + 1vh)*0.83);
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     height: 18%;
@@ -59,4 +60,46 @@ body, html {
     background-color: white;
     cursor: pointer;
 
+}
+
+
+@media screen and (max-width: 480px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+    }
+
+
+    .button_box {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        margin-top: 2%;
+    }
+
+    .img_box {
+        height: auto;
+        width: 30%;
+        padding-left: 0;
+    }
+
+    .img{
+        height: auto;
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .text {
+        text-align: center;
+        font-size: calc((1vw + 1vh)*1.15);
+    }
+
+
+    .button_box:hover {
+        background-color: #BEEAFA;
+    }
 }

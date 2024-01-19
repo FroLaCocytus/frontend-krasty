@@ -29,3 +29,15 @@ body, html {
 .container {
     height: 80%;
 }
+
+
+@media screen and (max-width: 480px) {
+  .logo_svg {
+    
+    display: none;
+  }
+
+  .logo_box{
+    display: none;
+}
+}

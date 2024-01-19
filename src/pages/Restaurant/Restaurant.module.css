@@ -45,7 +45,7 @@ body, html {
     height: 60%;
     padding-top: 7%;
     padding-left: 10%;
-    font-size: 20px;
+    font-size: calc((1vw + 1vh)*0.83);
     font-family: 'Montserrat';
     font-weight: 500;
 }
@@ -64,7 +64,7 @@ body, html {
 
 .brief_info_name {
     padding-left: 10%;
-    font-size: 40px;
+    font-size: calc((1vw + 1vh)*1.66);
     font-family: 'Montserrat';
     font-weight: 600;
 }
@@ -72,7 +72,7 @@ body, html {
 .brief_info_definition {
     padding-left: 10%;
     margin-top: 2%;
-    font-size: 20px;
+    font-size: calc((1vw + 1vh)*0.83);
     font-family: 'Montserrat';
     font-weight: 300;
 }
@@ -80,7 +80,7 @@ body, html {
 .brief_info_number {
     padding-left: 10%;
     margin-top: 12%;
-    font-size: 20px;
+    font-size: calc((1vw + 1vh)*0.83);
     font-family: 'Montserrat';
     font-weight: 300;
 }
@@ -100,8 +100,91 @@ body, html {
     margin-top: 3%;
     width: 68%;
     text-align: justify;
-    font-size: 18px;
+    font-size: calc((1vw + 1vh)*0.75);
     font-family: 'Montserrat';
     font-weight: 300;
+
+}
+
+
+@media screen and (max-width: 480px) {
+    .container {
+        display: flex;
+        flex-direction: column-reverse; 
+        justify-content: flex-end;
+    }
+
+    
+    .right_side {
+        flex: none;
+        width: 100%;
+        height: 89vh;
+        order: 2; /* right_side будет отображаться сверху */
+    }
+
+    .brief_info_right img{
+        height: 100%;
+        width: 50%;
+    }
+
+    .title {
+        height: 11vh;
+        background-color: #BEEAFA;
+    }
+
+    .title_left {
+        width: 100%;
+    }
+
+    .title_text {
+        font-size: calc((1vw + 1vh)*2.11);
+        padding-top: 6%;
+        padding-left: 7%;
+    }
+
+    .brief_info {
+        flex-direction: row;
+        height: auto;
+        padding-top: 5%;
+    }
+
+    .brief_info_left{
+        flex-direction: column;
+    }
+    
+    .brief_info_name {
+        font-size: calc((1vw + 1vh)*1.91); ;
+        padding-left: 14%;
+    }
+
+    .brief_info_definition,
+    .brief_info_number {
+        font-size: calc((1vw + 1vh)*1.53); 
+        margin-top: 5%;
+        padding-left: 14%;
+    }
+
+    .brief_info_right img{
+        height: 100%;
+        width: 100%;
+    }
+    
+    .description {
+        height: auto;
+    }
+
+    .text {
+        padding: 3% 7%;
+        font-size: calc((1vw + 1vh)*1.34); 
+        width: auto;
+    }
+
+
+    .left_side {
+        flex: none;
+        width: 100%;
+        height: 11vh; 
+        order: 1;
+    }
 
 }

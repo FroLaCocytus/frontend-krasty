@@ -1,8 +1,9 @@
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     height: 100%;
-  }
+}
 
 .container {
     height: 100%;
@@ -24,7 +25,7 @@ body, html {
     flex-direction: column;
     background-color: #DFF5FD;
     border-radius: 50px;
-  }
+}
 
 .img_box {
     height: 45%;
@@ -39,26 +40,31 @@ body, html {
     width: 80%;
 }
 
+.content_box { 
+    width: 100%; 
+    height: 55%;
+}
+
 .name {
-    height: 10%;
+    height: 18%;
     padding-left: 11%;
-    font-size: 18px ;
+    font-size: calc((1vw + 1vh)*0.75);
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
 }
 
 .description {
-    height: 20%;
+    height: 36%;
     padding-left: 11%;
     width: 80%;
-    font-size: 14px ;
+    font-size: calc((1vw + 1vh)*0.58);
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
 }
 
 
 .bottom_card {
-    height: 25%;
+    height: 45%;
     display: flex;
     flex-direction: row;
 
@@ -70,7 +76,7 @@ body, html {
     padding-top: 5%;
     box-sizing: border-box;
 
-    font-size: 16px ;
+    font-size: calc((1vw + 1vh)*0.66);
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
 }
@@ -79,7 +85,7 @@ body, html {
     width: 60%;
     height: 100%;
     box-sizing: border-box;
-    
+
 }
 
 .button_false,
@@ -88,10 +94,9 @@ body, html {
     height: 50%;
     margin-left: 15%;
     margin-top: 5%;
-
     border: none;
     border-radius: 50px;
-    font-size: 16px;
+    font-size: calc((1vw + 1vh)*0.66);
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     cursor: pointer;
@@ -117,4 +122,80 @@ body, html {
 
 .button_true:hover {
     background-color: #9bcce5;
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box;
+        padding-top: 5%;
+        padding-left: 0;
+        flex-wrap: nowrap;
+        align-content: first baseline;
+        row-gap: 3%;
+        column-gap: 0;
+    }
+
+    .dish_card {
+        flex-direction: row;
+        width: 90%; 
+        height: 27%;
+        margin-bottom: 1%;
+        border-radius: 20px;
+    }
+
+    .img_box {
+        width: 20%; 
+        height: 100%; 
+        margin-left: 5%;
+    }
+
+    .img {
+        width: 200%; 
+        height: auto;
+    }
+
+    .content_box { 
+        width: 80%; 
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .name {
+        height: 15%;
+        font-size: calc((1vw + 1vh)*1.44);
+        padding-top: 5%;
+        padding-left: 10%;
+    }
+
+    .description {
+        height: 50%;
+        font-size: calc((1vw + 1vh)*1.25);
+        padding-top: 2%;
+        padding-left: 10%;
+    }
+
+    .bottom_card{
+        height: 25%; 
+    }
+
+    .price {
+        font-size: calc((1vw + 1vh)*1.25);
+        padding-top: 0;
+        padding-left: 10%;
+
+    }
+
+
+    .button_false, .button_true {
+        width: 70%;
+        margin: 0 auto; 
+        height: 70%;
+        font-size: calc((1vw + 1vh)*1.25);
+    }
+
 }

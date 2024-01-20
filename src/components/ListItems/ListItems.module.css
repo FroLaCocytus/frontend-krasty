@@ -52,15 +52,14 @@ body, html {
     width: 100%;
     padding-top: 4%;
     font-weight: 500;
-    font-size: 18px;
+    font-size: calc((1vw + 1vh)*0.75);
 }
 
 .text_description {
     width: 100%;
     padding-top: 3%;
-
     font-weight: 300;
-    font-size: 14px;
+    font-size: calc((1vw + 1vh)*0.58);
 }
 
 .line_small {
@@ -84,7 +83,7 @@ body, html {
     display: flex;
     align-items: center;
     font-weight: 500;
-    font-size: 18px;
+    font-size: calc((1vw + 1vh)*0.75);
     padding-left: 9%;
 }
 
@@ -101,12 +100,12 @@ body, html {
 
 .text_count {
     font-weight: 500;
-    font-size: 18px; 
+    font-size: calc((1vw + 1vh)*0.75); 
 }
 
 .symbol_count {
     font-weight: 500;
-    font-size: 24px;
+    font-size: calc((1vw + 1vh)*1);
     cursor: pointer;
 
 }
@@ -122,4 +121,21 @@ body, html {
 
 .symbol_count:hover {
     opacity: 0.5;
+}
+
+
+
+@media screen and (max-width: 480px) {
+    .container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 5%;
+        overflow-y: scroll;
+        padding-left: 0;
+    }
+    .dish_row {
+        min-height: 40%;
+        width: 100%;
+    }
 }

@@ -6,53 +6,53 @@ import { fetchProducts } from "../../http/productAPI";
 import { getOneOrder } from "../../http/orderAPI";
 
 
-const ListDishes = observer(({handleShowAlertModal}) => {
+const ListDishes = observer(({ handleShowAlertModal }) => {
 
-    const {product} = useContext(Context)
+    const { product } = useContext(Context)
     const dishesArray = product.products;
 
     const [selectedProducts, setSelectedProducts] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchProducts().then(data => {
             product.setProducts(data)
         })
-        
+
     }, [])
 
     useEffect(() => {
-      const storedProducts = localStorage.getItem('selectedProducts');
-      if (storedProducts) {
-        setSelectedProducts(JSON.parse(storedProducts));
-      }
+        const storedProducts = localStorage.getItem('selectedProducts');
+        if (storedProducts) {
+            setSelectedProducts(JSON.parse(storedProducts));
+        }
     }, []);
 
     const isProductSelected = (id) => {
         return selectedProducts.some((product) => product.id === id);
     };
 
-    
+
     const addDish = (id, price) => {
-        getOneOrder() 
-        .then(data => {
-            if (!data.message) {
-                handleShowAlertModal('У вас уже есть активный заказ', false);
-            } else {
-                const selectedProduct = { id, price, count: 1 };
-                let updatedProducts = [];
-        
-                if (isProductSelected(id)) {
-                    updatedProducts = selectedProducts.filter((product) => product.id !== id);
+        getOneOrder()
+            .then(data => {
+                if (!data.message) {
+                    handleShowAlertModal('У вас уже есть активный заказ', false);
                 } else {
-                    updatedProducts = [...selectedProducts, selectedProduct];
+                    const selectedProduct = { id, price, count: 1 };
+                    let updatedProducts = [];
+
+                    if (isProductSelected(id)) {
+                        updatedProducts = selectedProducts.filter((product) => product.id !== id);
+                    } else {
+                        updatedProducts = [...selectedProducts, selectedProduct];
+                    }
+
+                    setSelectedProducts(updatedProducts);
+                    localStorage.setItem('selectedProducts', JSON.stringify(updatedProducts));
                 }
-        
-                setSelectedProducts(updatedProducts);
-                localStorage.setItem('selectedProducts', JSON.stringify(updatedProducts));
-            }
-        })
-        .catch(error => {
-        });
+            })
+            .catch(error => {
+            });
     };
 
 
@@ -60,26 +60,28 @@ const ListDishes = observer(({handleShowAlertModal}) => {
     return (
         <div className={styles.container}>
             {dishesArray.map(item => (
-            <div className={styles.dish_card} key={item.id}>
-                <div className={styles.img_box}>
-                    <img className={styles.img} src={process.env.REACT_APP_API_URL + item.img_path} />
-                </div>
-                <div className={styles.name}>{item.name}</div>
-                <div className={styles.description}>{item.description}</div>
-                <div className={styles.bottom_card}>
-                    <div className={styles.price}>{item.price} $</div>
-                    <div className={styles.button_box}>
-
-                        <div
-                            onClick={() => addDish(item.id, item.price)}
-                            className={`${isProductSelected(item.id) ? styles.button_true : styles.button_false}`}
-                        >
-                            {isProductSelected(item.id) ? 'В корзине' : 'Выбрать'}
-                        </div>
-
+                <div className={styles.dish_card} key={item.id}>
+                    <div className={styles.img_box}>
+                        <img className={styles.img} src={process.env.REACT_APP_API_URL + item.img_path} />
                     </div>
+                    <div className={styles.content_box}>
+                        <div className={styles.name}>{item.name}</div>
+                        <div className={styles.description}>{item.description}</div>
+                        <div className={styles.bottom_card}>
+                            <div className={styles.price}>{item.price} $</div>
+                            <div className={styles.button_box}>
+                                <div
+                                    onClick={() => addDish(item.id, item.price)}
+                                    className={`${isProductSelected(item.id) ? styles.button_true : styles.button_false}`}
+                                >
+                                    {isProductSelected(item.id) ? 'В корзине' : 'Выбрать'}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
             ))}
         </div>
     );

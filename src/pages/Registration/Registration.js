@@ -90,9 +90,9 @@ const Registration = observer(() => {
     await registration(login, password)
       .then(data => {
         handleShowAlertModal('Пользователь успешно добавлен!', true)
-        setTimeout(() => {
-          navigate('/'); // Вызов функции перехода к дашборду (или другому пути)
-        }, 3000);
+        setLogin("")
+        setPassword("")
+        setConfirmPassword("")
       })
       .catch(e => {
         handleShowAlertModal(e.response.data, false)
@@ -148,8 +148,7 @@ const Registration = observer(() => {
         </form>
         <div onClick={register} className={styles.form_button}>Зарегистрироваться</div>
       </div>
-      <ModalAlert isOpen={showModal} message={modalMessage} onClose={() => setShowModal(false)} status={modalStatus} />
-
+      <ModalAlert isOpen={showModal} message={modalMessage} onClose={() => setShowModal(false)} status={modalStatus}/>
     </div>
   );
 

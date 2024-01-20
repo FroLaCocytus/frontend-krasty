@@ -106,7 +106,6 @@ body, html {
 
 }
 
-
 @media screen and (max-width: 480px) {
     .container {
         display: flex;
@@ -134,12 +133,16 @@ body, html {
 
     .title_left {
         width: 100%;
+        display: flex;
+        align-items: center;
     }
 
     .title_text {
-        font-size: calc((1vw + 1vh)*2.11);
-        padding-top: 6%;
-        padding-left: 7%;
+        font-size: calc((1vw + 1vh)*2.05);
+        padding-top: 0;
+        padding-left: 6%;
+        display: flex;
+        align-items: center;
     }
 
     .brief_info {

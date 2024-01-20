@@ -105,7 +105,6 @@ html {
 .logout_button {
     width: 40%;
     height: 40%;
-
     border: none;
     border-radius: 50px;
     font-size: calc((1vw + 1vh)*0.75);
@@ -160,12 +159,16 @@ html {
 
     .title_left {
         width: 100%;
+        display: flex;
+        align-items: center;
     }
 
     .title_text {
-        font-size: calc((1vw + 1vh)*1.80);
-        padding-top: 6%;
-        padding-left: 7%;
+        font-size: calc((1vw + 1vh)*2.05);
+        padding-top: 0;
+        padding-left: 6%;
+        display: flex;
+        align-items: center;
     }
 
     .form {
@@ -209,7 +212,6 @@ html {
     .logout_button {
         width: 80%;
         height: 30%;
-
         border: none;
         border-radius: 50px;
         font-size: calc((1vw + 1vh)*1.35);

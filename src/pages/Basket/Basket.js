@@ -139,7 +139,7 @@ const Basket = observer(() => {
                 <div className={styles.right_side}>
                     <div className={styles.title}>
                         <div className={styles.title_left}>
-                            <div className={styles.title_text}>Ваш заказ готовится</div>
+                            <div className={styles.title_text}>Ваш заказ</div>
                         </div>
                         <div className={styles.button_box}>
                             {currentOrder.status === "delivering" && (
@@ -152,22 +152,32 @@ const Basket = observer(() => {
                             )}
                         </div>
                     </div>
-                    <div className={styles.status_bar}>
-                        <OrderStatusBar status={currentOrder.status} />
-                    </div>
-                    <div className={styles.order_info}>
-                        {basketProduct.map(product => (
-                            <div className={styles.product} key={product.name}>
-                                <img src={process.env.REACT_APP_API_URL + product.img_path} className={styles.product_image} />
-                                <div className={styles.product_details}>
-                                    <div className={styles.product_name}>{product.name}</div>
-                                    <div className={styles.product_description}>{product.description}</div>
-                                    <div className={styles.product_count}>Количество: {product.count}</div>
+                    <div className={styles.content}>
+                        <div className={styles.status_bar}>
+                            <OrderStatusBar status={currentOrder.status} />
+                        </div>
+                        <div className={styles.order_info}>
+                            {basketProduct.map(product => (
+                                <div className={styles.product} key={product.name}>
+                                    <img src={process.env.REACT_APP_API_URL + product.img_path} className={styles.product_image} />
+                                    <div className={styles.product_details}>
+                                        <div className={styles.product_name}>{product.name}</div>
+                                        <div className={styles.product_description}>{product.description}</div>
+                                        <div className={styles.product_count}>Количество: {product.count}</div>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
-                </div>
+                    {currentOrder.status === "delivering" && (
+                                <button
+                                    className={styles.complete_button_mob}
+                                    onClick={() => handleCompleteOrder(currentOrder.id, "completed")}
+                                >
+                                    Заказ получен
+                                </button>
+                            )}
+                    </div>
             ) : (
                 <div className={styles.right_side}>
                     <div className={styles.title}>
@@ -178,9 +188,14 @@ const Basket = observer(() => {
                             </div>
                         </div>
                     </div>
+                    {dish_count <= 0 && (
+                        <div className={styles.alert_mob}>Вы не выбрали блюда</div>
+
+                    )}
                     <div className={styles.list}>
                         <ListItems selectedProducts={selectedProducts} setSelectedProducts={setSelectedProducts} />
                     </div>
+                   
                     {dish_count > 0 && (
                         <div className={styles.buttons_box}>
                             <div onClick={ordering} className={styles.order_button}>Оформить за {orderPrice}$</div>

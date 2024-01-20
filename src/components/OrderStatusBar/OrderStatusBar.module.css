@@ -1,84 +1,131 @@
 @keyframes loadingAnimation {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: 100%;
-    }
+  0% {
+    width: 0;
   }
 
-/* OrderStatusBar.module.css */
+  100% {
+    width: 100%;
+  }
+}
+
 .orderStatusContainer {
-    display: flex;
-    align-items: center;
-    position: relative;
-    height: 100%;
-    width: 100%;
-    padding: 0 10px; 
-  }
-  
-  .statusLine {
-    flex-grow: 1;
-    height: 4px;
-    background-color: #e0e0e0;
-    position: relative;
-  }
-  
-  .statusLine.active:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #3b6f8e; 
-  }
-  
-  .statusPoint {
-    position: relative; 
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background-color: #e0e0e0;
-    margin: 0 5px;
-    z-index: 1; 
-  }
-  
-  .statusText {
-    text-align: center;
-    width: 100px;
-    font-size: 16px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    position: absolute;
-    transform: translate(-38%, 80%); 
-    color: #000; 
-    transition: all 0.3s ease-in-out; 
-  }
-  
-  .statusPoint.active {
-    background-color: #3b6f8e; 
-  }
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 0 10px;
+}
 
-  .statusPoint.active .statusText {
-    color: #3b6f8e; 
-    font-weight: 600;
-  }
-  
+.statusLine {
+  flex-grow: 1;
+  height: calc((1vw + 1vh)*0.167);
+  background-color: #e0e0e0;
+  position: relative;
+}
+
+.statusLine.active:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #3b6f8e;
+}
+
+.statusPoint {
+  position: relative;
+  width: calc((1vw + 1vh)*1.04);
+  height: calc((1vw + 1vh)*1.04);
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  margin: 0 5px;
+  z-index: 1;
+}
+
+.statusText {
+  text-align: center;
+  width: calc((1vw + 1vh)*4.167);
+  font-size: calc((1vw + 1vh)*0.667);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  position: absolute;
+  transform: translate(-38%, 80%);
+  color: #000;
+  transition: all 0.3s ease-in-out;
+}
+
+.statusPoint.active {
+  background-color: #3b6f8e;
+}
+
+.statusPoint.active .statusText {
+  color: #3b6f8e;
+  font-weight: 600;
+}
+
 .firstLine,
 .lastLine {
-  flex-grow: 0.5; 
+  flex-grow: 0.5;
 }
 
 .statusLine.loading {
-    overflow: hidden; /* Убедитесь, что анимация не выйдет за пределы линии */
-  }
+  overflow: hidden;
+}
 
 .statusLine.loading::before {
-content: '';
-display: block;
-height: 100%;
-background-color: #3b6f8e;
-/* animation: loadingAnimation 2s linear infinite;  */
-animation: loadingAnimation 3s ease infinite;/* Здесь вы можете настроить скорость анимации */
+  content: '';
+  display: block;
+  height: 100%;
+  background-color: #3b6f8e;
+  animation: loadingAnimation 3s ease infinite;
+}
+
+
+@media screen and (max-width: 480px) {
+  @keyframes loadingAnimation {
+    0% {
+      height: 0;
+    }
+
+    100% {
+      height: 100%;
+    }
+  }
+
+  .orderStatusContainer {
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+    height: 100%;
+    width: 95%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+
+  .statusText {
+    font-size: calc((1vw + 1vh)*1.152);
+    width: calc((1vw + 1vh)*6.718);
+
+  }
+
+  .statusLine {
+    width: calc((1vw + 1vh)*0.384);
+    margin: calc((1vw + 1vh)*0.48) 0;
+  }
+
+  .statusPoint {
+    width: calc((1vw + 1vh)*2.4);
+    height: calc((1vw + 1vh)*2.4);
+    margin: 0 auto;
+  }
+
+  .statusText {
+    transform: translateX(-110%);
+  }
+
+
 }

@@ -82,7 +82,7 @@ const CourierPage = observer(() => {
     }, []);
 
     useEffect(() => {
-        getOrders(page, "packaging").then(data => {
+        getOrders(page, "packaging",5).then(data => {
             order.setOrders(data.orders)
             setCountOrders(data.totalItems)
             setMaxPage(data.totalPages)

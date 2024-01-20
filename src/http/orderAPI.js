@@ -12,11 +12,11 @@ export const getOrderCourier = async () => {
 }
 
 
-export const getOrders = async (page, status) => {
+export const  getOrders = async (page, status, size) => {
   try {
     const queryParams = {
       page: 0,
-      size: 10,
+      size: size,
       status: status
     };
 

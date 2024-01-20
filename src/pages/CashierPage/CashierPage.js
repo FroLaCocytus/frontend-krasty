@@ -56,7 +56,7 @@ const CashierPage = observer(() => {
     };
 
     useEffect(()=>{
-        getOrders(page, "created").then(data => {
+        getOrders(page, "created", 5).then(data => {
             order.setOrders(data.orders)
             setCountOrders(data.totalItems)
             setMaxPage(data.totalPages)
@@ -74,7 +74,7 @@ const CashierPage = observer(() => {
             handleShowAlertModal(e.response.data, false)
         })
 
-        getOrders(page, "created").then(data => {
+        getOrders(page, "created",5).then(data => {
             order.setOrders(data.orders)
             setCountOrders(data.totalItems)
             setMaxPage(data.totalPages)

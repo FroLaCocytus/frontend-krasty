@@ -57,7 +57,7 @@ const PackagingPage = observer(() => {
     };
 
     useEffect(()=>{
-        getOrders(page, "accepted").then(data => {
+        getOrders(page, "accepted",5).then(data => {
             order.setOrders(data.orders)
             setCountOrders(data.totalItems)
             setMaxPage(data.totalPages)
@@ -75,7 +75,7 @@ const PackagingPage = observer(() => {
             handleShowAlertModal(e.response.data, false)
         })
 
-        getOrders(page, "accepted").then(data => {
+        getOrders(page, "accepted",5).then(data => {
             order.setOrders(data.orders)
             setCountOrders(data.totalItems)
             setMaxPage(data.totalPages)

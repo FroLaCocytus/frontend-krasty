@@ -168,7 +168,6 @@ html {
 
   .right_side {
     height: 70vh;
-
   }
 
   .logo_svg {
@@ -207,8 +206,6 @@ html {
     font-size: calc((1vw + 1vh)*1.26);
     height: auto;
   }
-
-
 
   .form_button {
     width: 85%;

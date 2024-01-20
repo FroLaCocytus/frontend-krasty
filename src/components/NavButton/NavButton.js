@@ -28,10 +28,10 @@ const NavButton = observer((props) => {
         <div className={styles.container}>
             {buttonArray.map((item, index) => (
                 <div onClick={() => {navigate(item.route)}} className={styles.button_box} key={index}>
-                    <div className={styles.img_box}>
+                    <div className={`${flagOutput ? styles.flagOutputImgBox : styles.img_box}`}>
                         <img className={styles.img} src={item.link} alt=""/>
                     </div>
-                    <div className={styles.text}>{item.text}</div>
+                    <div className={`${flagOutput ? styles.flagOutputText : styles.text}`}>{item.text}</div>
                 </div>
             ))}
             {flagOutput && <div onClick={logOut} className={styles.output}>Выйти</div>}

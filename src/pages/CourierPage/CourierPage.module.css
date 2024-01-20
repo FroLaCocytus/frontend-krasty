@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -13,7 +14,7 @@ body, html {
 .left_side,
 .right_side {
     flex: 1;
-    height: 100vh; 
+    height: 100vh;
 }
 
 
@@ -33,27 +34,27 @@ body, html {
     display: flex;
     flex-direction: row;
 }
-  
+
 .title_left {
     height: 100%;
     width: 50%;
 }
-  
+
 .title_text {
     box-sizing: border-box;
     height: 60%;
     padding-top: 7%;
     padding-left: 10%;
-    font-size: 20px;
+    font-size: calc((1vw + 1vh)*0.83);
     font-family: 'Montserrat';
     font-weight: 500;
 }
-  
+
 .title_description {
     height: 40%;
     padding-top: 2%;
     padding-left: 10%;
-    font-size: 16px;
+    font-size: calc((1vw + 1vh)*0.67);
     font-family: 'Montserrat';
     font-weight: 500;
     color: #808080;
@@ -86,14 +87,14 @@ body, html {
 }
 
 .page {
-    font-size: 24px;
+    font-size: calc((1vw + 1vh)*1);
     font-family: 'Montserrat';
     font-weight: 500;
 }
 
 .left_arrow:hover,
 .right_arrow:hover {
-    fill-opacity: 0.5; 
+    fill-opacity: 0.5;
 }
 
 
@@ -109,7 +110,7 @@ body, html {
 
 /* CashierPage.module.css */
 .order_card {
-    font-size: 18px;
+    font-size: calc((1vw + 1vh)*0.75);
     font-family: 'Montserrat';
     font-weight: 500;
     height: 18%;
@@ -129,18 +130,18 @@ body, html {
 
 .order_id {
     padding-left: 5%;
-    font-size: 18px;
+    font-size: calc((1vw + 1vh)*0.75);
     font-weight: 500;
     color: #333;
 }
 
 .order_description {
     padding-left: 5%;
-    font-size: 16px;
+    font-size: calc((1vw + 1vh)*0.67);
     font-weight: 400;
     color: #666;
     line-height: 1.4;
-    margin-top: 8px;
+    margin-top: calc((1vw + 1vh)*0.33);
 }
 
 .button_box {
@@ -155,10 +156,9 @@ body, html {
     height: 50%;
     width: 50%;
     margin-left: 30%;
-    font-size: 16px;
+    font-size: calc((1vw + 1vh)*0.67);
     font-family: 'Montserrat';
     font-weight: 700;
-
     background-color: #1F5569;
     border: none;
     color: white;
@@ -166,7 +166,6 @@ body, html {
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    
     border-radius: 15px;
     transition: background-color 0.2s ease-in-out;
 }
@@ -181,30 +180,246 @@ body, html {
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: calc((1vw + 1vh)*0.83);
+    margin-bottom: calc((1vw + 1vh)*0.83);
 }
 
 .order_info_content {
-    margin-bottom: 20px;
+    margin-bottom: calc((1vw + 1vh)*0.83);
 }
 
 .order_header {
-    margin-bottom: 15px;
+    margin-bottom: calc((1vw + 1vh)*0.63);
 }
 
 
 .order_detail {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: calc((1vw + 1vh)*0.42);
 }
 
 .detail_label {
     font-weight: bold;
-    margin-right: 10px;
+    margin-right: calc((1vw + 1vh)*0.42);
 }
 
 .detail_value {
     flex: 1;
+}
+
+.order_info{
+    padding: 2% 2% 2% 2%;
+    border: none;
+}
+.order_info_content {
+    background-color: #DFF5FD;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    margin: 0;
+}
+
+.order_header {
+    background-color: #4a76a8;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px 6px 0 0;
+    font-size: calc((1vw + 1vh)*0.75);
+    font-family: 'Montserrat';
+    font-weight: 500;
+}
+
+.order_detail {
+    padding: 10px 20px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail_label {
+    font-size: calc((1vw + 1vh)*0.67);
+    font-family: 'Montserrat';
+    font-weight: 500;
+    color: #333;
+    margin-right: calc((1vw + 1vh)*0.42);
+    width: 30%;
+}
+
+.detail_value {
+    font-size: calc((1vw + 1vh)*0.67);
+    font-family: 'Montserrat';
+    font-weight: 400;
+    color: #555;
+    flex-grow: 1;
+    width: 30%;
+    
+}
+
+@media screen and (max-width: 480px) {
+
+    .title_text {
+        height: 60%;
+        padding-top: 10%;
+        padding-left: 10%;
+        font-size: calc((1vw + 1vh)*1.90);
+        font-family: 'Montserrat';
+        font-weight: 500;
+    }
+    
+    .title_description {
+        height: 40%;
+        padding-top: 2%;
+        padding-left: 10%;
+        font-size: calc((1vw + 1vh)*1.35);
+        font-family: 'Montserrat';
+        font-weight: 500;
+        color: #808080;
+    
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+    }
+
+    .right_side {
+        flex: none;
+        width: 100%;
+        height: 89vh;
+        order: 2;
+    }
+
+    .page {
+        font-size: 24px;
+        font-family: 'Montserrat';
+        font-weight: 500;
+    }
+
+    .pagination {
+        padding: 0;
+        width: 100%;
+        height: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        align-items: center;
+        gap: 2%;
+        padding-right: 6%;
+    }
+
+    .left_arrow,
+    .right_arrow {
+        height: 70%;
+        width: auto;
+    }
+
+    .list_order {
+        display: flex;
+        align-items: center;
+        padding-left: 0;
+    }
+
+    .order_card {
+        font-size: 18px;
+        font-family: 'Montserrat';
+        font-weight: 500;
+        height: 18%;
+        width: 90%;
+        border-radius: 15px;
+        background-color: #DFF5FD;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .order_content {
+        width: 60%;
+        padding: 0;
+    }
+
+    .order_id {
+        padding-left: 5%;
+        padding-top: 4%;
+        font-size: 16px;
+        font-weight: 500;
+        color: #333;
+    }
+
+    .order_description {
+        padding-left: 5%;
+        font-size: 14px;
+        font-weight: 400;
+        color: #666;
+        line-height: 1.4;
+        padding-top: 2%;
+        margin-top: 0;
+    }
+
+    .button_box {
+        width: 40%;
+    }
+
+    .accept_button {
+        width: 80%;
+        padding: 0 0;
+        margin: 0;
+        font-size: 12px;
+    }
+
+    .left_side {
+        flex: none;
+        width: 100%;
+        height: 11vh;
+        order: 1;
+    }
+    
+
+    .order_info{
+        padding: 2% 2% 2% 2%;
+        border: none;
+    }
+    .order_info_content {
+        background-color: #DFF5FD;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 0;
+        margin: 0;
+    }
+    
+    .order_header {
+        background-color: #4a76a8;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 6px 6px 0 0;
+        font-size: 18px;
+        font-family: 'Montserrat';
+        font-weight: 500;
+    }
+    
+    .order_detail {
+        padding: 10px 20px;
+        border-bottom: 1px solid #e0e0e0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .detail_label {
+        font-size: 16px;
+        font-family: 'Montserrat';
+        font-weight: 500;
+        color: #333;
+        margin-right: 10px;
+        width: 30%;
+    }
+    
+    .detail_value {
+        font-size: 16px;
+        font-family: 'Montserrat';
+        font-weight: 400;
+        color: #555;
+        flex-grow: 1;
+        width: 30%;
+        
+    }
 }

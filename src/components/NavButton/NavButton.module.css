@@ -30,6 +30,12 @@ html {
     padding-left: 9%;
 }
 
+.flagOutputImgBox {
+    height: auto;
+    width: 30%;
+    padding-left: 9%;
+}
+
 .img {
     height: auto;
     width: 60%;
@@ -37,6 +43,14 @@ html {
 }
 
 .text {
+    font-size: calc((1vw + 1vh)*0.83);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    height: auto;
+    width: 70%;
+}
+
+.flagOutputText{
     font-size: calc((1vw + 1vh)*0.83);
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
@@ -101,5 +115,30 @@ html {
 
     .button_box:hover {
         background-color: #BEEAFA;
+    }
+
+    .flagOutputImgBox {
+        height: auto;
+        width: 25%;
+        padding: 0;
+    }
+
+    .flagOutputText{
+        font-size: calc((1vw + 1vh)*1.15);
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 300;
+        height: auto;
+        width: 70%;
+        text-align: center;
+    }
+
+    .output{
+        font-size: calc((1vw + 1vh)*1.15);
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2%;
     }
 }

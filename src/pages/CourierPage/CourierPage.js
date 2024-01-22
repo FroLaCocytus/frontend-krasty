@@ -67,6 +67,7 @@ const CourierPage = observer(() => {
             setCurrentOrder({
                 id: data.id,
                 clientName: data.clientName,
+                clientNumber: data.clientNumber,
                 deliveryAddress: data.deliveryAddress,
                 description: data.description,
             });
@@ -120,6 +121,10 @@ const CourierPage = observer(() => {
                             <div className={styles.order_detail}>
                                 <div className={styles.detail_label}>Имя клиента:</div>
                                 <div className={styles.detail_value}>{currentOrder.clientName}</div>
+                            </div>
+                            <div className={styles.order_detail}>
+                                <div className={styles.detail_label}>Номер телефона:</div>
+                                <div className={styles.detail_value}>{currentOrder.clientNumber}</div>
                             </div>
                             <div className={styles.order_detail}>
                                 <div className={styles.detail_label}>Адрес доставки:</div>

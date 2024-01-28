@@ -12,7 +12,7 @@ export const getOrderCourier = async () => {
 }
 
 
-export const  getOrders = async (page, status, size) => {
+export const getOrders = async (page, status, size) => {
   try {
     const queryParams = {
       page: 0,

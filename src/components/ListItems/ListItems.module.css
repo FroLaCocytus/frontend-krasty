@@ -138,4 +138,24 @@ body, html {
         min-height: 40%;
         width: 100%;
     }
+
+    .text_name {
+        font-size: calc((1vw + 1vh)*1.5);
+    }
+
+    .text_description {
+        font-size: calc((1vw + 1vh)*1.25);
+    }
+
+    .text_price {
+        font-size: calc((1vw + 1vh)*1.25);
+    }
+
+    .text_count {
+        font-size: calc((1vw + 1vh)*1.25); 
+    }
+    
+    .symbol_count {
+        font-size: calc((1vw + 1vh)*2);
+    }
 }

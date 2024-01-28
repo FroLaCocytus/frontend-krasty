@@ -90,6 +90,11 @@ body, html {
     width: 50%;
 }
 
+.brief_info_right img{
+    height: 100%;
+    width: auto;
+}
+
 .description {
     height: 43%;
     width: 100%;

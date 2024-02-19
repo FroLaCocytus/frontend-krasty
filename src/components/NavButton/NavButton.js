@@ -3,6 +3,7 @@ import styles from './NavButton.module.css'
 import { useNavigate  } from 'react-router-dom';
 import { observer } from "mobx-react-lite";
 import { Context } from '../../index'
+import { START_ROUTE } from "../../utils/consts"
 
 
 const NavButton = observer((props) => {
@@ -21,7 +22,7 @@ const NavButton = observer((props) => {
         user.setRole({})
         localStorage.removeItem('token')
         localStorage.removeItem('selectedProducts')
-        navigate('/')
+        navigate(START_ROUTE)
       }
 
     return (

@@ -4,6 +4,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { Context } from "../index";
 import { clientRoutes, accountantRoutes, publicRoutes, merchandiserRoutes, cashierRoutes, chefRoutes, juniorChefRoutes, courierRoutes} from "../routes";
 import { observer } from "mobx-react-lite";
+import { START_ROUTE, MENU_ROUTE, DOCUMENT_ROUTE, WAREHOUSE_ROUTE, CASHIER_ROUTE, DOCUMENT_CHEF_ROUTE, PACKAGING_ROUTE, COURIER_ROUTE } from "../utils/consts"
+
 
 const AppRouter = observer(() => {
     const {user} = useContext(Context);
@@ -37,17 +39,17 @@ const AppRouter = observer(() => {
                 <Route key={path} path={path} element={Element} />
             ))}
             
-            {user.isAuth && user.role === "client" && <Route path="*" element={<Navigate to="/menu" replace />} />}
-            {user.isAuth && user.role === "accountant" && <Route path="*" element={<Navigate to="/accountant/document" replace />} />}
-            {user.isAuth && user.role === "merchandiser" && <Route path="*" element={<Navigate to="/merchandiser/warehouse" replace />} />}
-            {user.isAuth && user.role === "cashier" && <Route path="*" element={<Navigate to="/cashier" replace />} />}
-            {user.isAuth && user.role === "chef" && <Route path="*" element={<Navigate to="/chef/document" replace />} />}
-            {user.isAuth && user.role === "junior chef" && <Route path="*" element={<Navigate to="/junior/packaging" replace />} />}
-            {user.isAuth && user.role === "courier" && <Route path="*" element={<Navigate to="/courier" replace />} />}
+            {user.isAuth && user.role === "client" && <Route path="*" element={<Navigate to={MENU_ROUTE} replace />} />}
+            {user.isAuth && user.role === "accountant" && <Route path="*" element={<Navigate to={DOCUMENT_ROUTE} replace />} />}
+            {user.isAuth && user.role === "merchandiser" && <Route path="*" element={<Navigate to={WAREHOUSE_ROUTE} replace />} />}
+            {user.isAuth && user.role === "cashier" && <Route path="*" element={<Navigate to={CASHIER_ROUTE} replace />} />}
+            {user.isAuth && user.role === "chef" && <Route path="*" element={<Navigate to={DOCUMENT_CHEF_ROUTE} replace />} />}
+            {user.isAuth && user.role === "junior chef" && <Route path="*" element={<Navigate to={PACKAGING_ROUTE} replace />} />}
+            {user.isAuth && user.role === "courier" && <Route path="*" element={<Navigate to={COURIER_ROUTE} replace />} />}
             
 
 
-            {!user.isAuth && <Route path="*" element={<Navigate to="/" replace />} />}
+            {!user.isAuth && <Route path="*" element={<Navigate to={START_ROUTE} replace />} />}
         </Routes>
     );
 

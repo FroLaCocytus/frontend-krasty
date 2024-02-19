@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { registration } from "../../http/userAPI";
 import { observer } from "mobx-react-lite";
 import ModalAlert from "../../components/ModalAlert/ModalAlert";
+import { LOGIN_ROUTE } from "../../utils/consts"
 
 
 const Registration = observer(() => {
@@ -143,7 +144,7 @@ const Registration = observer(() => {
           </div>
           <div className={styles.form_small_text}>
             <div>Уже зарегистрированы?</div>
-            <div onClick={() => { navigate('/login') }} className={styles.form_small_text_registration}>Войти</div>
+            <div onClick={() => { navigate(LOGIN_ROUTE) }} className={styles.form_small_text_registration}>Войти</div>
           </div>
         </form>
         <div onClick={register} className={styles.form_button}>Зарегистрироваться</div>

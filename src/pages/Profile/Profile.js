@@ -11,6 +11,7 @@ import { Context } from '../../index'
 import { observer } from "mobx-react-lite";
 import { getUserInfo, updateUserInfo } from "../../http/userAPI";
 import ModalAlert from "../../components/ModalAlert/ModalAlert";
+import { START_ROUTE } from "../../utils/consts"
 
 
 const Profile = observer(() => {
@@ -135,7 +136,7 @@ const Profile = observer(() => {
         user.setRole({})
         localStorage.removeItem('token')
         localStorage.removeItem('selectedProducts')
-        navigate('/')
+        navigate(START_ROUTE)
     }
 
     return (

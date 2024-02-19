@@ -8,7 +8,7 @@ import { loginAPI } from "../../http/userAPI";
 import { observer } from "mobx-react-lite";
 import ModalAlert from "../../components/ModalAlert/ModalAlert";
 
-
+import { MENU_ROUTE, REGISTRATION_ROUTE } from "../../utils/consts"
 
 
 const LoginPage = observer(() => {
@@ -83,7 +83,7 @@ const LoginPage = observer(() => {
             user.setIsAuth(true)
             user.setLogin(data.login)
             user.setRole(data.role)
-            navigate('/menu')
+            navigate(MENU_ROUTE)
         })
         .catch(e => {
             handleShowAlertModal(e.response.data)
@@ -125,7 +125,7 @@ const LoginPage = observer(() => {
                     </div>
                     <div className={styles.form_small_text}>
                         <div>Первый раз? </div>
-                        <div onClick={() => {navigate('/registration')}} className={styles.form_small_text_registration}>Зарегистрируйтесь</div>
+                        <div onClick={() => {navigate(REGISTRATION_ROUTE)}} className={styles.form_small_text_registration}>Зарегистрируйтесь</div>
                     </div>
                 </form>  
                 <div onClick={signin} className={styles.form_button}>Войти</div>
